@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Aerial 1.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Summa</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<noscript>
+			<link rel="stylesheet" href="{% static 'home/css/skel.css'%}" />
+			<link rel="stylesheet" href="{% static 'home/css/style.css' %}" />
+			<link rel="stylesheet" href="{% static 'home/css/style-wide.css' %}" />
+			<link rel="stylesheet" href="{% static 'home/css/style-noscript.css' %}" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'home/css/ie/v9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'home/css/ie/v8.css' %}" /><![endif]-->
+
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	</head>
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Project Summa</h1>
+                        {% if is_authenticated == False %}
+                            <p>Data Analytics &nbsp;&bull;&nbsp; Deep Learning &nbsp;&bull;&nbsp; Django</p>
+                        {% elif is_authenticated == True %}
+                            <p>Welcome! {{ username }}</p>
+                        {% endif %}
+
+						<nav>
+							<ul>
+                                {% if is_authenticated == False %}
+                                <li><a id="login-button" href="{% url 'home:login' %}" type="button" class="fa fa-sign-in"\
+                                    value="{{ is_authenticated }}"><span>login</span></a></li>
+                                {% elif is_authenticated == True %}
+                                <li><a id="logout-button" href="{% url 'home:logout' %}" type="button" class="fa fa-sign-out"\
+                                    value="{{ is_authenticated }}"><span>logout</span></a></li>
+                                {% endif %}
+								<li><a href="{% url 'analyzer:index' %}" class="fa fa-terminal"><span>Analyzer</span></a></li>
+								<li><a href="{% url 'projectmanager:index' %}" class="fa fa-group"><span>PM</span></a></li>
+								<li><a href="#" class="fa fa-download"><span>Download</span></a></li>
+								<li><a href="{% url 'contact:index' %}" class="fa fa-envelope-o"><span>Contact</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+                    <!-- Modal start -->
+                    <div class="modal fade bs-modal-sm" id="myModals" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <br>
+                            <div class="bs-example bs-example-tabs">
+                                <ul id="myTab" class="nav nav-tabs">
+                                  <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                                  <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+                                  <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+                                </ul>
+                            </div>
+                          <div class="modal-body">
+                            <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in" id="why">
+                            <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+                            </div>
+                            <div class="tab-pane fade active in" id="signin">
+                                <form class="form-horizontal">
+                                <fieldset>
+                                <!-- Sign In Form -->
+                                <!-- Text input-->
+                                <div class="control-group">
+                                  <label class="control-label" for="userid">Alias:</label>
+                                  <div class="controls">
+                                    <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+                                  </div>
+                                </div>
+
+                                <!-- Password input-->
+                                <div class="control-group">
+                                  <label class="control-label" for="passwordinput">Password:</label>
+                                  <div class="controls">
+                                    <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                  </div>
+                                </div>
+
+                                <!-- Multiple Checkboxes (inline) -->
+                                <div class="control-group">
+                                  <label class="control-label" for="rememberme"></label>
+                                  <div class="controls">
+                                    <label class="checkbox inline" for="rememberme-0">
+                                      <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                      Remember me
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                  <label class="control-label" for="signin"></label>
+                                  <div class="controls">
+                                    <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                  </div>
+                                </div>
+                                </fieldset>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="signup">
+                                <form class="form-horizontal">
+                                <fieldset>
+                                <!-- Sign Up Form -->
+                                <!-- Text input-->
+                                <div class="control-group">
+                                  <label class="control-label" for="Email">Email:</label>
+                                  <div class="controls">
+                                    <input id="Email" name="Email" class="form-control" type="text" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
+                                  </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="control-group">
+                                  <label class="control-label" for="userid">Alias:</label>
+                                  <div class="controls">
+                                    <input id="userid" name="userid" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                  </div>
+                                </div>
+
+                                <!-- Password input-->
+                                <div class="control-group">
+                                  <label class="control-label" for="password">Password:</label>
+                                  <div class="controls">
+                                    <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                    <em>1-8 Characters</em>
+                                  </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="control-group">
+                                  <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                  <div class="controls">
+                                    <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                  </div>
+                                </div>
+
+                                <!-- Multiple Radios (inline) -->
+                                <br>
+                                <div class="control-group">
+                                  <label class="control-label" for="humancheck">Humanity Check:</label>
+                                  <div class="controls">
+                                    <label class="radio inline" for="humancheck-0">
+                                      <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot</label>
+                                    <label class="radio inline" for="humancheck-1">
+                                      <input type="radio" name="humancheck" id="humancheck-1" value="human">I'm Human</label>
+                                  </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                  <label class="control-label" for="confirmsignup"></label>
+                                  <div class="controls">
+                                    <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                  </div>
+                                </div>
+                                </fieldset>
+                                </form>
+                          </div>
+                        </div>
+                          </div>
+                          <div class="modal-footer">
+                          <center>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </center>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Modal end-->
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="copyright">&copy; TedJeong <a href="https://github.com/TedJeong" class="fa fa-github"></a></span>
+					</footer>
+
+			</div>
+		</div>
+
+        <!-- init.js folder contains css file path -->
+        <script type="text/javascript" charset="utf-8">
+            var init_style_css = "{% static 'home/css/style.css' %}"
+            var init_style_wide_css = "{% static 'home/css/style-wide.css' %}"
+            var init_style_normal_css = "{% static 'home/css/style-normal.css' %}"
+            var init_style_mobile_css = "{% static 'home/css/style-mobile.css' %}"
+            var init_style_mobilep_css = "{% static 'home/css/style-mobilep.css' %}"
+        </script>
+
+		<!--[if lte IE 8]><script src="{% static 'home/css/ie/html5shiv.js' %}"></script><![endif]-->
+
+		<script src="{% static 'home/js/skel.min.js'%}"></script>
+		<script src="{% static 'home/js/init.js' %}"></script>
+
+        <!-- jQuery -->
+        <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+        <!-- Bootstrap -->
+        <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        {% block jsimport %}{% endblock %}
+
+	</body>
+</html>

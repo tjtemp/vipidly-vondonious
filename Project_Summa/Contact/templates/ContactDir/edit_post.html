@@ -1,0 +1,25 @@
+{% extends 'ContactDir/filter_post.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block body %}
+<form method="POST" action="" enctype="multipart/form-data">
+	{% csrf_token %}
+	<input type="hidden" name="filtered_image"/>
+	<div id="filter_nav">
+		<img src="" id="preview"/>
+		<button value="vintage">Vintage</button>
+		<button value="sepia">Sepia</button>
+	</div>
+	{% bootstrap_form form %}
+	<p>
+		<button type="submit" class="btn btn-primary btn-lg">저장</button>
+		<a href="{% url 'contact:list' %}" type="button" class="btn btn-primary btn-lg">
+			취소
+		</a>
+	</p>
+</form>
+{% endblock %}
+{% block jsimport %}
+{% endblock %}
+
+

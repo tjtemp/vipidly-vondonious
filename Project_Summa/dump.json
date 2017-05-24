@@ -1,0 +1,3913 @@
+[
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "project"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "controller"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "task"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "workspace"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "category"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "member"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "ProjectManager",
+        "model": "progress"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "analyzer_core"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "controller"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "image"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "postprocessor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "preprocessor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "video"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Contact",
+        "model": "category"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Contact",
+        "model": "post"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Contact",
+        "model": "tag"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Contact",
+        "model": "comment"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "datafile"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "Analyzer",
+        "model": "job"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "UserProfile",
+        "model": "userprofile"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "UserProfile",
+        "model": "usermessage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "UserProfile",
+        "model": "userfile"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "4jwoo1949q67fh5sa3uts9ft83jfv6z1",
+    "fields": {
+        "session_data": "ODVjOTQ4NmUzNDlhNmYyNGNiOGU1MjlmODllMDUxZmNiODEzMDJjNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjczZGE5NjUzNWVjYzMyZjY4YjJjZDY1YjVmZTE2NWUwYTNmYjgwYjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-15T13:44:53.167Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6ewossc4skkmn5t0st219cu5czn2cs5h",
+    "fields": {
+        "session_data": "ODVjOTQ4NmUzNDlhNmYyNGNiOGU1MjlmODllMDUxZmNiODEzMDJjNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjczZGE5NjUzNWVjYzMyZjY4YjJjZDY1YjVmZTE2NWUwYTNmYjgwYjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-15T13:47:09.237Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6fcl20pinsldso9z3whlztag19ewy2gl",
+    "fields": {
+        "session_data": "ODVjOTQ4NmUzNDlhNmYyNGNiOGU1MjlmODllMDUxZmNiODEzMDJjNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjczZGE5NjUzNWVjYzMyZjY4YjJjZDY1YjVmZTE2NWUwYTNmYjgwYjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-15T13:48:41.731Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6seigddtesp2b2m00x9v9ln6im7nwfdl",
+    "fields": {
+        "session_data": "ZjRjOGFiZGE1ODIzMTVjZGNkYjdmZTM2ZjU5YmU5Mjc5MTRmMDc2MTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiMTRiZTI2MzQ5ZmUyMmQyYWU0NzQyY2YwYmZmNTU3OWVmMmJlYWQ2MCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2017-05-31T17:24:28.609Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "7g6yku2t5500a7c8l4uu8fbjbwtnl672",
+    "fields": {
+        "session_data": "YTQ3NDE2ODZhZjUyMGJmMzJjOGE0NTI0NjYxOGFlZGNjYWFjMTVhNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3M2RhOTY1MzVlY2MzMmY2OGIyY2Q2NWI1ZmUxNjVlMGEzZmI4MGIwIn0=",
+        "expire_date": "2017-02-13T14:59:28.246Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "8ozxhd4hue43ccd0u2pm20ft44xmsmtl",
+    "fields": {
+        "session_data": "ODVjOTQ4NmUzNDlhNmYyNGNiOGU1MjlmODllMDUxZmNiODEzMDJjNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjczZGE5NjUzNWVjYzMyZjY4YjJjZDY1YjVmZTE2NWUwYTNmYjgwYjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-13T14:28:25.392Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "i072mcnqcvqp6e7c0wzmvocj6kfsclki",
+    "fields": {
+        "session_data": "ODVjOTQ4NmUzNDlhNmYyNGNiOGU1MjlmODllMDUxZmNiODEzMDJjNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjczZGE5NjUzNWVjYzMyZjY4YjJjZDY1YjVmZTE2NWUwYTNmYjgwYjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-15T13:47:58.747Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "iytqiqxy2e93cgu5q9cuj3sflihe3kz4",
+    "fields": {
+        "session_data": "YTQ3NDE2ODZhZjUyMGJmMzJjOGE0NTI0NjYxOGFlZGNjYWFjMTVhNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3M2RhOTY1MzVlY2MzMmY2OGIyY2Q2NWI1ZmUxNjVlMGEzZmI4MGIwIn0=",
+        "expire_date": "2017-05-01T02:13:42.858Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lkozsg6iusdme325f3igt0y2ittbirwd",
+    "fields": {
+        "session_data": "YmRkNWRiMjUxYjRiMjQ3ODdhNWEyZWU0ZDQ2ODJlMDAwNGQzMTgzMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzNkYTk2NTM1ZWNjMzJmNjhiMmNkNjViNWZlMTY1ZTBhM2ZiODBiMCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-12T11:45:04.767Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "mb3hqhtps24qi1to8zlixa4sv0qizkea",
+    "fields": {
+        "session_data": "YTQ3NDE2ODZhZjUyMGJmMzJjOGE0NTI0NjYxOGFlZGNjYWFjMTVhNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3M2RhOTY1MzVlY2MzMmY2OGIyY2Q2NWI1ZmUxNjVlMGEzZmI4MGIwIn0=",
+        "expire_date": "2017-02-26T08:04:53.355Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "usp415katxtrsd573l75nalbfsh03cgf",
+    "fields": {
+        "session_data": "ODVjOTQ4NmUzNDlhNmYyNGNiOGU1MjlmODllMDUxZmNiODEzMDJjNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjczZGE5NjUzNWVjYzMyZjY4YjJjZDY1YjVmZTE2NWUwYTNmYjgwYjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-02-19T07:59:14.679Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "uv8us5b9rcu4i529gp27uculb617runk",
+    "fields": {
+        "session_data": "NGM3ZDM1MzM2MzllYzU0OGRmM2YwYTI3N2JjYjMyYWQzZTlkYjE0Zjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiMTRiZTI2MzQ5ZmUyMmQyYWU0NzQyY2YwYmZmNTU3OWVmMmJlYWQ2MCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2017-05-30T16:09:52.531Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "uwrpzpf87zs9ehs1dp1z0377bypxy2x5",
+    "fields": {
+        "session_data": "MWVlMzAzNDBiMTQzMGQ3ODM4NzNiODdkNzg5Y2YyNmU5MzE0Y2I0MDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYzU3NjQwMjI1ODEyMGFkN2YxYzM2Y2UxODcxZDkzMjAyZThkZTBjYSIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-06-01T07:05:45.469Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "v6eixni1wozisr6757ympi3h6dt4rgao",
+    "fields": {
+        "session_data": "YTQ3NDE2ODZhZjUyMGJmMzJjOGE0NTI0NjYxOGFlZGNjYWFjMTVhNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3M2RhOTY1MzVlY2MzMmY2OGIyY2Q2NWI1ZmUxNjVlMGEzZmI4MGIwIn0=",
+        "expire_date": "2017-03-08T05:47:35.012Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "wwps9o2hevhxjkzuuy3opj78ttx0gll2",
+    "fields": {
+        "session_data": "YmFlNDUzYzRjYmFiNmMyZDcwOTg2MTQ5NmU5ZjRhNDg3NTMwYzY0MDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzNkYTk2NTM1ZWNjMzJmNjhiMmNkNjViNWZlMTY1ZTBhM2ZiODBiMCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2017-02-12T08:25:51.796Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ye0f6qxp7yh5mq5r5xb8sng0psvo7na7",
+    "fields": {
+        "session_data": "YmFlNDUzYzRjYmFiNmMyZDcwOTg2MTQ5NmU5ZjRhNDg3NTMwYzY0MDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzNkYTk2NTM1ZWNjMzJmNjhiMmNkNjViNWZlMTY1ZTBhM2ZiODBiMCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2017-02-12T07:58:09.364Z"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 1,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 2,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 3,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 4,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 5,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 6,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 7,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "Analyzer.image",
+    "pk": 8,
+    "fields": {
+        "image_type": "image_"
+    }
+},
+{
+    "model": "ProjectManager.progress",
+    "pk": 1,
+    "fields": {
+        "progress_name": "progress_PM page",
+        "progress_project": 1,
+        "progress_task": 1,
+        "progress_member": 1,
+        "progress_gauge": "0.50",
+        "progress_open_date": "2017-02-19T12:44:12.097Z",
+        "progress_closed_date": null
+    }
+},
+{
+    "model": "ProjectManager.progress",
+    "pk": 2,
+    "fields": {
+        "progress_name": "progress_Image Analyzer",
+        "progress_project": 1,
+        "progress_task": 2,
+        "progress_member": 1,
+        "progress_gauge": "0.20",
+        "progress_open_date": "2017-02-19T12:27:02.501Z",
+        "progress_closed_date": null
+    }
+},
+{
+    "model": "ProjectManager.progress",
+    "pk": 3,
+    "fields": {
+        "progress_name": "progress_PM page_all",
+        "progress_project": 1,
+        "progress_task": 1,
+        "progress_member": null,
+        "progress_gauge": "0.10",
+        "progress_open_date": "2017-02-19T12:44:09.090Z",
+        "progress_closed_date": null
+    }
+},
+{
+    "model": "ProjectManager.task",
+    "pk": 1,
+    "fields": {
+        "task_status": false,
+        "task_priority": 1,
+        "task_name": "PM page",
+        "task_description": "project manager page \ub9c8\ubb34\ub9ac",
+        "task_project": 1,
+        "task_submitter": "Anonymous",
+        "task_initiated_at": "2017-02-19T12:35:23.570Z",
+        "task_deadline": "2017-02-01T13:55:01Z",
+        "task_completed_at": "2017-02-04T13:55:05Z",
+        "task_progress": "0.55",
+        "task_related": [],
+        "task_members": [
+            1
+        ]
+    }
+},
+{
+    "model": "ProjectManager.task",
+    "pk": 2,
+    "fields": {
+        "task_status": false,
+        "task_priority": 1,
+        "task_name": "Image Analyzer \ub9c8\ubb34\ub9ac",
+        "task_description": "",
+        "task_project": 1,
+        "task_submitter": "TedJeong",
+        "task_initiated_at": "2017-05-17T07:28:15.358Z",
+        "task_deadline": "2017-02-01T13:55:49Z",
+        "task_completed_at": "2017-02-04T13:55:52Z",
+        "task_progress": "0.20",
+        "task_related": [],
+        "task_members": [
+            1,
+            5
+        ]
+    }
+},
+{
+    "model": "ProjectManager.task",
+    "pk": 3,
+    "fields": {
+        "task_status": false,
+        "task_priority": 1,
+        "task_name": "\uba54\uc2dc\uc9d5 \ub9c8\ubb34\ub9ac",
+        "task_description": "\uc0c1\ub2e8 \uba54\uc2dc\uc9d5 \ud398\uc774\uc9c0\uc774\uc158, \ud074\ub9ad\uc774\ubca4\ud2b8, \uc720\uc800\uc815\ubcf4 \uba54\uc2dc\uc9d5",
+        "task_project": 1,
+        "task_submitter": "TedJeong",
+        "task_initiated_at": "2017-02-12T08:04:27.110Z",
+        "task_deadline": null,
+        "task_completed_at": null,
+        "task_progress": "0.00",
+        "task_related": [],
+        "task_members": []
+    }
+},
+{
+    "model": "ProjectManager.task",
+    "pk": 9,
+    "fields": {
+        "task_status": false,
+        "task_priority": 1,
+        "task_name": "task_\ub215\ub215",
+        "task_description": null,
+        "task_project": 3,
+        "task_submitter": "Anonymous",
+        "task_initiated_at": "2017-05-17T11:31:56.027Z",
+        "task_deadline": null,
+        "task_completed_at": null,
+        "task_progress": "0.00",
+        "task_related": [],
+        "task_members": []
+    }
+},
+{
+    "model": "ProjectManager.task",
+    "pk": 11,
+    "fields": {
+        "task_status": false,
+        "task_priority": 1,
+        "task_name": "task_\ub0d0\ub0d0\ub0d0",
+        "task_description": null,
+        "task_project": 3,
+        "task_submitter": "Anonymous",
+        "task_initiated_at": "2017-05-17T12:01:23.217Z",
+        "task_deadline": null,
+        "task_completed_at": null,
+        "task_progress": "0.00",
+        "task_related": [],
+        "task_members": []
+    }
+},
+{
+    "model": "ProjectManager.member",
+    "pk": 1,
+    "fields": {
+        "member_name": "TedJeong",
+        "member_department": "project manager"
+    }
+},
+{
+    "model": "ProjectManager.member",
+    "pk": 2,
+    "fields": {
+        "member_name": "joo",
+        "member_department": "freelancer"
+    }
+},
+{
+    "model": "ProjectManager.member",
+    "pk": 3,
+    "fields": {
+        "member_name": "Jeong",
+        "member_department": "project manager"
+    }
+},
+{
+    "model": "ProjectManager.member",
+    "pk": 4,
+    "fields": {
+        "member_name": "Joohyeok",
+        "member_department": "team manager"
+    }
+},
+{
+    "model": "ProjectManager.member",
+    "pk": 5,
+    "fields": {
+        "member_name": "Hee",
+        "member_department": "backend programmer"
+    }
+},
+{
+    "model": "ProjectManager.member",
+    "pk": 6,
+    "fields": {
+        "member_name": "Jenny",
+        "member_department": "frontend programmer"
+    }
+},
+{
+    "model": "ProjectManager.project",
+    "pk": 1,
+    "fields": {
+        "project_status": false,
+        "project_name": "project_summa",
+        "project_controller": 1,
+        "project_category": 2,
+        "project_start_date": "2017-02-01T13:53:49.442Z",
+        "project_end_date": "2017-02-01T13:53:05Z",
+        "project_deadline": "2017-02-11T18:00:00Z",
+        "project_description": "protfolio project.",
+        "project_members": [
+            1,
+            2,
+            4
+        ],
+        "project_workspaces": [
+            1
+        ]
+    }
+},
+{
+    "model": "ProjectManager.project",
+    "pk": 2,
+    "fields": {
+        "project_status": false,
+        "project_name": "project_test1",
+        "project_controller": 1,
+        "project_category": 1,
+        "project_start_date": "2017-02-13T03:34:38.782Z",
+        "project_end_date": null,
+        "project_deadline": null,
+        "project_description": "test project_",
+        "project_members": [
+            1,
+            3
+        ],
+        "project_workspaces": [
+            1
+        ]
+    }
+},
+{
+    "model": "ProjectManager.project",
+    "pk": 3,
+    "fields": {
+        "project_status": false,
+        "project_name": "project_myplace",
+        "project_controller": 1,
+        "project_category": 3,
+        "project_start_date": "2017-02-13T03:35:16.600Z",
+        "project_end_date": "2017-02-13T03:35:08Z",
+        "project_deadline": "2017-02-18T03:35:13Z",
+        "project_description": "test project_",
+        "project_members": [
+            1,
+            5
+        ],
+        "project_workspaces": [
+            1
+        ]
+    }
+},
+{
+    "model": "ProjectManager.project",
+    "pk": 4,
+    "fields": {
+        "project_status": false,
+        "project_name": "Summa_l_07",
+        "project_controller": 1,
+        "project_category": 2,
+        "project_start_date": "2017-02-13T04:35:05.961Z",
+        "project_end_date": "2017-02-13T04:31:55Z",
+        "project_deadline": "2017-02-19T04:32:00Z",
+        "project_description": "test project_",
+        "project_members": [
+            1
+        ],
+        "project_workspaces": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "ProjectManager.project",
+    "pk": 5,
+    "fields": {
+        "project_status": false,
+        "project_name": "project_test",
+        "project_controller": 1,
+        "project_category": 1,
+        "project_start_date": "2017-05-18T07:49:49.539Z",
+        "project_end_date": null,
+        "project_deadline": null,
+        "project_description": "\ud14c\uc2a4\ud2b8 \uc560\uae30\ub2f9",
+        "project_members": [],
+        "project_workspaces": []
+    }
+},
+{
+    "model": "ProjectManager.category",
+    "pk": 1,
+    "fields": {
+        "category_parent": null,
+        "category_name": "webdevelopment"
+    }
+},
+{
+    "model": "ProjectManager.category",
+    "pk": 2,
+    "fields": {
+        "category_parent": 1,
+        "category_name": "django project"
+    }
+},
+{
+    "model": "ProjectManager.category",
+    "pk": 3,
+    "fields": {
+        "category_parent": 1,
+        "category_name": "spring project"
+    }
+},
+{
+    "model": "ProjectManager.workspace",
+    "pk": 1,
+    "fields": {
+        "workspace_name": "porfolio",
+        "workspace_controller": 1,
+        "workspace_description": "test workspace_main"
+    }
+},
+{
+    "model": "ProjectManager.workspace",
+    "pk": 2,
+    "fields": {
+        "workspace_name": "dummyWS1",
+        "workspace_controller": 2,
+        "workspace_description": "dummy workspace"
+    }
+},
+{
+    "model": "ProjectManager.controller",
+    "pk": 1,
+    "fields": {
+        "controller_name": "controller_main",
+        "controller_description": "test workspace_main"
+    }
+},
+{
+    "model": "ProjectManager.controller",
+    "pk": 2,
+    "fields": {
+        "controller_name": "controller_sub",
+        "controller_description": "sub controller"
+    }
+},
+{
+    "model": "Contact.category",
+    "pk": 1,
+    "fields": {
+        "name": "Q&A",
+        "parent": null
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 1,
+    "fields": {
+        "name": "teddy"
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 2,
+    "fields": {
+        "name": "question"
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 3,
+    "fields": {
+        "name": "cat"
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 4,
+    "fields": {
+        "name": "cat2"
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 5,
+    "fields": {
+        "name": ""
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 6,
+    "fields": {
+        "name": "EDM!!!!!!!!"
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 7,
+    "fields": {
+        "name": "\ub878"
+    }
+},
+{
+    "model": "Contact.tag",
+    "pk": 8,
+    "fields": {
+        "name": "channel"
+    }
+},
+{
+    "model": "UserProfile.usermessage",
+    "pk": 3,
+    "fields": {
+        "fromuser": 1,
+        "touser": 2,
+        "title": "\uc548\ub155",
+        "content": "\ub0d0\ub0e5",
+        "created_at": "2017-02-06T16:19:37.689Z",
+        "updated_at": "2017-02-06T16:19:37.689Z"
+    }
+},
+{
+    "model": "UserProfile.usermessage",
+    "pk": 4,
+    "fields": {
+        "fromuser": 2,
+        "touser": 1,
+        "title": "\uc751",
+        "content": "\uc548\ub155",
+        "created_at": "2017-02-06T16:19:49.483Z",
+        "updated_at": "2017-02-06T16:19:49.483Z"
+    }
+},
+{
+    "model": "UserProfile.usermessage",
+    "pk": 5,
+    "fields": {
+        "fromuser": 3,
+        "touser": 1,
+        "title": "\ubaac\ub370\uc601",
+        "content": "\ubaac\ub370\uc601",
+        "created_at": "2017-02-11T22:23:00.760Z",
+        "updated_at": "2017-02-11T22:23:00.760Z"
+    }
+},
+{
+    "model": "UserProfile.usermessage",
+    "pk": 6,
+    "fields": {
+        "fromuser": 3,
+        "touser": 1,
+        "title": "data-dismiss",
+        "content": "\ub97c \ube7c\uc57c\uc9c0 submit\uc774 \ub3fc\uc601",
+        "created_at": "2017-02-11T22:25:09.886Z",
+        "updated_at": "2017-02-11T22:25:09.886Z"
+    }
+},
+{
+    "model": "UserProfile.usermessage",
+    "pk": 7,
+    "fields": {
+        "fromuser": 2,
+        "touser": 3,
+        "title": "\uc548\ub155",
+        "content": "\ub2c8\ub0d0\ub1e8",
+        "created_at": "2017-04-17T02:13:23.775Z",
+        "updated_at": "2017-04-17T02:13:23.775Z"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project",
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project",
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project",
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add controller",
+        "content_type": [
+            "ProjectManager",
+            "controller"
+        ],
+        "codename": "add_controller"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change controller",
+        "content_type": [
+            "ProjectManager",
+            "controller"
+        ],
+        "codename": "change_controller"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete controller",
+        "content_type": [
+            "ProjectManager",
+            "controller"
+        ],
+        "codename": "delete_controller"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add task",
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "codename": "add_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change task",
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "codename": "change_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete task",
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "codename": "delete_task"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add workspace",
+        "content_type": [
+            "ProjectManager",
+            "workspace"
+        ],
+        "codename": "add_workspace"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change workspace",
+        "content_type": [
+            "ProjectManager",
+            "workspace"
+        ],
+        "codename": "change_workspace"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete workspace",
+        "content_type": [
+            "ProjectManager",
+            "workspace"
+        ],
+        "codename": "delete_workspace"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add category",
+        "content_type": [
+            "ProjectManager",
+            "category"
+        ],
+        "codename": "add_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change category",
+        "content_type": [
+            "ProjectManager",
+            "category"
+        ],
+        "codename": "change_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete category",
+        "content_type": [
+            "ProjectManager",
+            "category"
+        ],
+        "codename": "delete_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add member",
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "codename": "add_member"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change member",
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "codename": "change_member"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete member",
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "codename": "delete_member"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add progress",
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "codename": "add_progress"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change progress",
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "codename": "change_progress"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete progress",
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "codename": "delete_progress"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add analyzer_core",
+        "content_type": [
+            "Analyzer",
+            "analyzer_core"
+        ],
+        "codename": "add_analyzer_core"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change analyzer_core",
+        "content_type": [
+            "Analyzer",
+            "analyzer_core"
+        ],
+        "codename": "change_analyzer_core"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete analyzer_core",
+        "content_type": [
+            "Analyzer",
+            "analyzer_core"
+        ],
+        "codename": "delete_analyzer_core"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add controller",
+        "content_type": [
+            "Analyzer",
+            "controller"
+        ],
+        "codename": "add_controller"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change controller",
+        "content_type": [
+            "Analyzer",
+            "controller"
+        ],
+        "codename": "change_controller"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete controller",
+        "content_type": [
+            "Analyzer",
+            "controller"
+        ],
+        "codename": "delete_controller"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add image",
+        "content_type": [
+            "Analyzer",
+            "image"
+        ],
+        "codename": "add_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change image",
+        "content_type": [
+            "Analyzer",
+            "image"
+        ],
+        "codename": "change_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete image",
+        "content_type": [
+            "Analyzer",
+            "image"
+        ],
+        "codename": "delete_image"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add post processor",
+        "content_type": [
+            "Analyzer",
+            "postprocessor"
+        ],
+        "codename": "add_postprocessor"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change post processor",
+        "content_type": [
+            "Analyzer",
+            "postprocessor"
+        ],
+        "codename": "change_postprocessor"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete post processor",
+        "content_type": [
+            "Analyzer",
+            "postprocessor"
+        ],
+        "codename": "delete_postprocessor"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add pre processor",
+        "content_type": [
+            "Analyzer",
+            "preprocessor"
+        ],
+        "codename": "add_preprocessor"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change pre processor",
+        "content_type": [
+            "Analyzer",
+            "preprocessor"
+        ],
+        "codename": "change_preprocessor"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete pre processor",
+        "content_type": [
+            "Analyzer",
+            "preprocessor"
+        ],
+        "codename": "delete_preprocessor"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add video",
+        "content_type": [
+            "Analyzer",
+            "video"
+        ],
+        "codename": "add_video"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change video",
+        "content_type": [
+            "Analyzer",
+            "video"
+        ],
+        "codename": "change_video"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete video",
+        "content_type": [
+            "Analyzer",
+            "video"
+        ],
+        "codename": "delete_video"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add category",
+        "content_type": [
+            "Contact",
+            "category"
+        ],
+        "codename": "add_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change category",
+        "content_type": [
+            "Contact",
+            "category"
+        ],
+        "codename": "change_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete category",
+        "content_type": [
+            "Contact",
+            "category"
+        ],
+        "codename": "delete_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add post",
+        "content_type": [
+            "Contact",
+            "post"
+        ],
+        "codename": "add_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change post",
+        "content_type": [
+            "Contact",
+            "post"
+        ],
+        "codename": "change_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete post",
+        "content_type": [
+            "Contact",
+            "post"
+        ],
+        "codename": "delete_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add tag",
+        "content_type": [
+            "Contact",
+            "tag"
+        ],
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change tag",
+        "content_type": [
+            "Contact",
+            "tag"
+        ],
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete tag",
+        "content_type": [
+            "Contact",
+            "tag"
+        ],
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add comment",
+        "content_type": [
+            "Contact",
+            "comment"
+        ],
+        "codename": "add_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change comment",
+        "content_type": [
+            "Contact",
+            "comment"
+        ],
+        "codename": "change_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete comment",
+        "content_type": [
+            "Contact",
+            "comment"
+        ],
+        "codename": "delete_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add datafile",
+        "content_type": [
+            "Analyzer",
+            "datafile"
+        ],
+        "codename": "add_datafile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change datafile",
+        "content_type": [
+            "Analyzer",
+            "datafile"
+        ],
+        "codename": "change_datafile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete datafile",
+        "content_type": [
+            "Analyzer",
+            "datafile"
+        ],
+        "codename": "delete_datafile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add job",
+        "content_type": [
+            "Analyzer",
+            "job"
+        ],
+        "codename": "add_job"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change job",
+        "content_type": [
+            "Analyzer",
+            "job"
+        ],
+        "codename": "change_job"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete job",
+        "content_type": [
+            "Analyzer",
+            "job"
+        ],
+        "codename": "delete_job"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user profile",
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "codename": "add_userprofile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user profile",
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "codename": "change_userprofile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user profile",
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "codename": "delete_userprofile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user message",
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "codename": "add_usermessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user message",
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "codename": "change_usermessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user message",
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "codename": "delete_usermessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user file",
+        "content_type": [
+            "UserProfile",
+            "userfile"
+        ],
+        "codename": "add_userfile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user file",
+        "content_type": [
+            "UserProfile",
+            "userfile"
+        ],
+        "codename": "change_userfile"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user file",
+        "content_type": [
+            "UserProfile",
+            "userfile"
+        ],
+        "codename": "delete_userfile"
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$30000$6pd5B6QTcySY$7NuFlmAC77S7TcwTMEzmo7XUztl5+wGbufVYrB8wvAA=",
+        "last_login": "2017-05-18T07:05:45.456Z",
+        "is_superuser": true,
+        "username": "joo",
+        "first_name": "",
+        "last_name": "",
+        "email": "mrtedjeong@naver.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2017-01-29T07:57:21.169Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$30000$mIkhb01Zpoz8$xyHiozhbMHUmqRRaKYv5EABlCH1eyPnIhIdkHNeEkuY=",
+        "last_login": "2017-05-18T06:13:45.446Z",
+        "is_superuser": false,
+        "username": "TedJeong",
+        "first_name": "",
+        "last_name": "",
+        "email": "mrtedjeong@naver.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-02-05T12:06:43.873Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$30000$LsuV38Yh022s$UTYHAlDOmr2GGRoJs8vjlxmyzg6RCjSanQsFLGs+f84=",
+        "last_login": "2017-04-17T02:09:37.040Z",
+        "is_superuser": false,
+        "username": "Joohyeok",
+        "first_name": "",
+        "last_name": "",
+        "email": "wngur0523@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-02-05T14:38:41.630Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$30000$5bVI6rZVKuRb$KYZVlHHqZPLcN6DW8QILNVBkM2B3CM0zgnxwadeYsm8=",
+        "last_login": "2017-02-10T12:24:44.222Z",
+        "is_superuser": false,
+        "username": "Jeong",
+        "first_name": "",
+        "last_name": "",
+        "email": "Jeong@daum.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-02-10T12:24:43.873Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$30000$WH4UUAbdpERP$bWTS0p3a2txV5UXEQhWwlsrLAsNj5vXcHshF+3wFGrg=",
+        "last_login": "2017-02-11T07:07:31.610Z",
+        "is_superuser": false,
+        "username": "Hee",
+        "first_name": "",
+        "last_name": "",
+        "email": "Hee@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-02-11T07:07:31.267Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$30000$dxHQu8lje12Y$z3jSqBUeMnKXM/TEZunMMy1BQ5GdDspDazNJjlRFuhI=",
+        "last_login": "2017-02-13T13:39:58.677Z",
+        "is_superuser": false,
+        "username": "Jenny",
+        "first_name": "",
+        "last_name": "",
+        "email": "jen@naver.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-02-13T13:39:58.386Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$36000$tOfR2U6ooqhb$Tk8li9n2I1Q49VZBTls6jcwRDGPxlQkjYBDMtXDv0bY=",
+        "last_login": "2017-05-15T14:32:36.797Z",
+        "is_superuser": false,
+        "username": "newbie",
+        "first_name": "",
+        "last_name": "",
+        "email": "newbie@naver.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-05-15T12:42:51.106Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$36000$GHbpFwBNemeL$2pGpj8xahLUeiwd++V4HLBLo72ZtsnMkby94LPUyc7c=",
+        "last_login": "2017-05-16T02:53:14.456Z",
+        "is_superuser": false,
+        "username": "tester",
+        "first_name": "",
+        "last_name": "",
+        "email": "tester@lycos.co.kr",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-05-16T02:53:14.077Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$36000$soxxNtcomoTu$9WHOvtAzmBdIHtDRR1+ElfLd33qgAdNJlWO83ByS/YY=",
+        "last_login": "2017-05-16T02:55:13.878Z",
+        "is_superuser": false,
+        "username": "Jack",
+        "first_name": "",
+        "last_name": "",
+        "email": "names@naver.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2017-05-16T02:55:13.468Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "Analyzer.job",
+    "pk": 2,
+    "fields": {
+        "job_status": "finished",
+        "job_priority": 1,
+        "job_name": "dummy2",
+        "job_submitter": null,
+        "job_dataset_size": 0,
+        "job_started_at": "2017-02-01T14:59:03.211Z",
+        "job_deadline": "2017-02-01T14:59:01Z",
+        "job_completed_at": "2017-02-01T14:59:02Z"
+    }
+},
+{
+    "model": "Analyzer.job",
+    "pk": 6,
+    "fields": {
+        "job_status": "pending",
+        "job_priority": 1,
+        "job_name": "testing",
+        "job_submitter": [
+            "TedJeong"
+        ],
+        "job_dataset_size": 0,
+        "job_started_at": "2017-05-17T15:41:55.312Z",
+        "job_deadline": null,
+        "job_completed_at": null
+    }
+},
+{
+    "model": "Analyzer.job",
+    "pk": 7,
+    "fields": {
+        "job_status": "pending",
+        "job_priority": 1,
+        "job_name": "\ud14c\uc2a4\ud2b8",
+        "job_submitter": [
+            "TedJeong"
+        ],
+        "job_dataset_size": 0,
+        "job_started_at": "2017-05-18T01:40:36.494Z",
+        "job_deadline": null,
+        "job_completed_at": null
+    }
+},
+{
+    "model": "Analyzer.job",
+    "pk": 8,
+    "fields": {
+        "job_status": "pending",
+        "job_priority": 1,
+        "job_name": "j",
+        "job_submitter": [
+            "TedJeong"
+        ],
+        "job_dataset_size": 2,
+        "job_started_at": "2017-05-18T04:28:07.304Z",
+        "job_deadline": null,
+        "job_completed_at": null
+    }
+},
+{
+    "model": "Analyzer.job",
+    "pk": 9,
+    "fields": {
+        "job_status": "pending",
+        "job_priority": 1,
+        "job_name": "Jumper",
+        "job_submitter": [
+            "TedJeong"
+        ],
+        "job_dataset_size": 0,
+        "job_started_at": "2017-05-18T04:30:58.761Z",
+        "job_deadline": null,
+        "job_completed_at": null
+    }
+},
+{
+    "model": "Analyzer.job",
+    "pk": 10,
+    "fields": {
+        "job_status": "pending",
+        "job_priority": 1,
+        "job_name": "kkk",
+        "job_submitter": [
+            "TedJeong"
+        ],
+        "job_dataset_size": 0,
+        "job_started_at": "2017-05-18T04:35:47.712Z",
+        "job_deadline": null,
+        "job_completed_at": null
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 1,
+    "fields": {
+        "filename": "testing",
+        "filepath": "Jack/files/images.jpeg",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 2,
+    "fields": {
+        "filename": "test2",
+        "filepath": "Jack/files/cst1476.jpg",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 3,
+    "fields": {
+        "filename": "ntest",
+        "filepath": "Jack/files/ntest",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 4,
+    "fields": {
+        "filename": "jumper",
+        "filepath": "Jack/files/jumper",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 5,
+    "fields": {
+        "filename": "jumper",
+        "filepath": "Jack/files/jumper_24I8tVz",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 6,
+    "fields": {
+        "filename": "test",
+        "filepath": "Jack/files/test",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 7,
+    "fields": {
+        "filename": "tt",
+        "filepath": "Jack/files/tt",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 8,
+    "fields": {
+        "filename": "panana",
+        "filepath": "Jack/files/panana",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 9,
+    "fields": {
+        "filename": "testfilenal",
+        "filepath": "Jack/files/testfilenal",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 10,
+    "fields": {
+        "filename": "final",
+        "filepath": "Jack/files/final",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 11,
+    "fields": {
+        "filename": "testing",
+        "filepath": "Jack/files/testing",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 12,
+    "fields": {
+        "filename": "tested",
+        "filepath": "Jack/files/tested",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 13,
+    "fields": {
+        "filename": "testkk",
+        "filepath": "Jack/files/testkk",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 14,
+    "fields": {
+        "filename": "xnlxnl",
+        "filepath": "Jack/files/xnlxnl",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 15,
+    "fields": {
+        "filename": "kk",
+        "filepath": "Jack/files/kk",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 16,
+    "fields": {
+        "filename": "kkjjj",
+        "filepath": "",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 17,
+    "fields": {
+        "filename": "fine",
+        "filepath": "Jack/files/fine",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 18,
+    "fields": {
+        "filename": "file1",
+        "filepath": "Jack/files/file1",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 19,
+    "fields": {
+        "filename": "kjj",
+        "filepath": "Jack/files/kjj",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 20,
+    "fields": {
+        "filename": "channel",
+        "filepath": "TedJeong/files/channel",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 21,
+    "fields": {
+        "filename": "1",
+        "filepath": "Jack/files/1",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 22,
+    "fields": {
+        "filename": "kjj",
+        "filepath": "Jack/files/kjj_wfzxjWO",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 23,
+    "fields": {
+        "filename": "tesitn",
+        "filepath": "Jack/files/tesitn",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 24,
+    "fields": {
+        "filename": "filename",
+        "filepath": "Jack/files/filename",
+        "fileowner": [
+            "Jack"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 25,
+    "fields": {
+        "filename": "names",
+        "filepath": "TedJeong/files/names",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 26,
+    "fields": {
+        "filename": "test1",
+        "filepath": "TedJeong/files/test1",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 27,
+    "fields": {
+        "filename": "nn",
+        "filepath": "TedJeong/files/nn",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 28,
+    "fields": {
+        "filename": "names",
+        "filepath": "TedJeong/files/names_uKAEx6e",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 29,
+    "fields": {
+        "filename": "naming",
+        "filepath": "TedJeong/files/naming",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 30,
+    "fields": {
+        "filename": "namesw",
+        "filepath": "TedJeong/files/namesw",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Analyzer.datafile",
+    "pk": 31,
+    "fields": {
+        "filename": "kaykaykay",
+        "filepath": "TedJeong/files/kaykaykay",
+        "fileowner": [
+            "TedJeong"
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "title": "\uccab\ubc88\uc9f8 \uae00\uc774\uc5d0\uc5fc",
+        "category": 1,
+        "image": "2017/01/29/ted_sample.jpg",
+        "content": "\uccab\ubc88\uc9f8\uc57c!",
+        "created_at": "2017-01-29T11:49:07.607Z",
+        "updated_at": "2017-01-30T14:28:44.117Z",
+        "tags": [
+            1
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "title": "\ub450\ubc88\uc9f8 Q&A",
+        "category": 1,
+        "image": "",
+        "content": "\uc548\ub155\ud558\uc138\uc694",
+        "created_at": "2017-01-30T14:37:28.223Z",
+        "updated_at": "2017-01-30T14:37:28.223Z",
+        "tags": [
+            2
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "title": "\ud14c\ub4dc\ub2c8?",
+        "category": 1,
+        "image": "2017/01/30/cat_2.jpg",
+        "content": "\uace0\ub0e5\uc774\ub2e4",
+        "created_at": "2017-01-30T14:49:23.150Z",
+        "updated_at": "2017-01-30T14:49:23.150Z",
+        "tags": [
+            3
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 4,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "title": "\ub118\uc5b4\uac00\ub098\uc694",
+        "category": 1,
+        "image": "2017/01/30/cat.jpg",
+        "content": "\uc5b4 \uc5b4 \ub118\uc5b4\uac04\ub2e4",
+        "created_at": "2017-01-30T15:00:03.938Z",
+        "updated_at": "2017-01-30T15:00:03.938Z",
+        "tags": [
+            4
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 5,
+    "fields": {
+        "user": [
+            "TedJeong"
+        ],
+        "title": "TedJeong?",
+        "category": 1,
+        "image": "",
+        "content": "Hello!",
+        "created_at": "2017-02-05T12:07:23.625Z",
+        "updated_at": "2017-02-05T12:07:23.625Z",
+        "tags": [
+            5
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 6,
+    "fields": {
+        "user": [
+            "Joohyeok"
+        ],
+        "title": "Newbie here!!",
+        "category": 1,
+        "image": "2017/02/05/person.jpeg",
+        "content": "Yeppie!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+        "created_at": "2017-02-05T14:39:46.019Z",
+        "updated_at": "2017-02-05T14:39:46.019Z",
+        "tags": [
+            6
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 7,
+    "fields": {
+        "user": [
+            "Jack"
+        ],
+        "title": "\uae00\uc4f0\uae34\ub370\uc5fc",
+        "category": 1,
+        "image": "2017/05/16/cst1476.jpg",
+        "content": "YEAH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+        "created_at": "2017-05-16T02:58:13.600Z",
+        "updated_at": "2017-05-16T02:58:13.600Z",
+        "tags": [
+            7
+        ]
+    }
+},
+{
+    "model": "Contact.post",
+    "pk": 8,
+    "fields": {
+        "user": [
+            "TedJeong"
+        ],
+        "title": "\ud14c\uc2a4\ud2b8\uc5d0\uc5ec",
+        "category": 1,
+        "image": "2017/05/16/2016_Jean-Paul-Goude-Sigrid-Agren-Chance-Chanel-news.jpg",
+        "content": "Channel!",
+        "created_at": "2017-05-16T16:10:55.715Z",
+        "updated_at": "2017-05-16T16:10:55.715Z",
+        "tags": [
+            8
+        ]
+    }
+},
+{
+    "model": "Contact.comment",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "post": 1,
+        "content": "\uccab \ub313\uae00\uc774\ub2f9",
+        "created_at": "2017-01-29T11:49:18.495Z"
+    }
+},
+{
+    "model": "Contact.comment",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "post": 1,
+        "content": "\uc608\uc4f0!",
+        "created_at": "2017-01-30T15:40:22.305Z"
+    }
+},
+{
+    "model": "Contact.comment",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "Joohyeok"
+        ],
+        "post": 6,
+        "content": "That's should be one of the ImageNet dataset.",
+        "created_at": "2017-02-05T14:40:17.427Z"
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "TedJeong"
+        ],
+        "projectinfo": 1,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": "",
+        "profile_photo": "TedJeong/info/profile-photo_TedJeong_2"
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "Joohyeok"
+        ],
+        "projectinfo": 4,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": "",
+        "profile_photo": ""
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "joo"
+        ],
+        "projectinfo": 2,
+        "profile_location": "Seoul",
+        "profile_age": 26,
+        "profile_facebook": "",
+        "profile_photo": "joo/info/profile-photo_joo_1"
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 4,
+    "fields": {
+        "user": [
+            "Jeong"
+        ],
+        "projectinfo": 3,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": "",
+        "profile_photo": ""
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 5,
+    "fields": {
+        "user": [
+            "Hee"
+        ],
+        "projectinfo": 5,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": "",
+        "profile_photo": ""
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 6,
+    "fields": {
+        "user": [
+            "Jenny"
+        ],
+        "projectinfo": 6,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": "",
+        "profile_photo": ""
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 7,
+    "fields": {
+        "user": [
+            "newbie"
+        ],
+        "projectinfo": null,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": null,
+        "profile_photo": ""
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 8,
+    "fields": {
+        "user": [
+            "tester"
+        ],
+        "projectinfo": null,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": null,
+        "profile_photo": ""
+    }
+},
+{
+    "model": "UserProfile.userprofile",
+    "pk": 9,
+    "fields": {
+        "user": [
+            "Jack"
+        ],
+        "projectinfo": null,
+        "profile_location": "Seoul",
+        "profile_age": null,
+        "profile_facebook": null,
+        "profile_photo": "Jack/info/profile-photo_Jack_10.jpg"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2017-01-29T11:48:23.329Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "Contact",
+            "category"
+        ],
+        "object_id": "1",
+        "object_repr": "Q&A",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2017-01-30T14:28:44.118Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "Contact",
+            "post"
+        ],
+        "object_id": "1",
+        "object_repr": "1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"title\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2017-02-01T13:49:00.360Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "1",
+        "object_repr": "TedJeong-project manager",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2017-02-01T13:49:08.897Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "2",
+        "object_repr": "member_dummy-freelancer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2017-02-01T13:49:13.516Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "3",
+        "object_repr": "member_dummy2-project manager",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2017-02-01T13:49:25.275Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "4",
+        "object_repr": "member_dumm3-team manager",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2017-02-01T13:49:32.820Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "5",
+        "object_repr": "member_dummy4-backend programmer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2017-02-01T13:49:39.239Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "6",
+        "object_repr": "member_dummy5-frontend programmer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2017-02-01T13:50:16.822Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "controller"
+        ],
+        "object_id": "1",
+        "object_repr": "controller_main",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2017-02-01T13:50:35.560Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "workspace"
+        ],
+        "object_id": "1",
+        "object_repr": "workspace - porfolio",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2017-02-01T13:51:07.620Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "controller"
+        ],
+        "object_id": "2",
+        "object_repr": "controller_sub",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2017-02-01T13:51:15.917Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "workspace"
+        ],
+        "object_id": "2",
+        "object_repr": "workspace - dummyWS1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2017-02-01T13:51:36.088Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "category"
+        ],
+        "object_id": "1",
+        "object_repr": "category - webdevelopment",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2017-02-01T13:52:06.353Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "category"
+        ],
+        "object_id": "2",
+        "object_repr": "category - django project",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2017-02-01T13:52:15.545Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "category"
+        ],
+        "object_id": "3",
+        "object_repr": "category - spring project",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2017-02-01T13:53:49.446Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "controller_main - ['porfolio'] name: project_summa at 2017-02-01 13:53:49.442659+00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2017-02-01T13:55:10.574Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "object_id": "1",
+        "object_repr": "PM page-controller_main - ['porfolio'] name: project_summa at 2017-02-01 13:53:49.442659+00:00 : ProjectManager.Member.None",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2017-02-01T13:55:53.642Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "object_id": "2",
+        "object_repr": "Image Analyzer \ub9c8\ubb34\ub9ac-controller_main - ['porfolio'] name: project_summa at 2017-02-01 13:53:49.442659+00:00 : ProjectManager.Member.None",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2017-02-01T14:58:49.429Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "Analyzer",
+            "job"
+        ],
+        "object_id": "1",
+        "object_repr": "dummy1-TedJeong : finished",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2017-02-01T14:59:03.211Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "Analyzer",
+            "job"
+        ],
+        "object_id": "2",
+        "object_repr": "dummy2-Joo : finished",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2017-02-05T14:20:44.621Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "1",
+        "object_repr": "UserProfile object",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2017-02-06T13:57:20.591Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "2",
+        "object_repr": "UserProfile object",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2017-02-06T13:59:39.140Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": null,
+        "object_id": "1",
+        "object_repr": "UserMessageSent object",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2017-02-06T15:33:22.671Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": null,
+        "object_id": "1",
+        "object_repr": "What are you doing? to Joohyeok",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2017-02-06T15:35:42.768Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": null,
+        "object_id": "1",
+        "object_repr": "\ub0e5\ub0e5\ub0e5 to TedJeong",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2017-02-06T15:36:05.147Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": null,
+        "object_id": "2",
+        "object_repr": "\uc548\ub155\ud574\uc918 to TedJeong",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2017-02-06T15:52:10.675Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "object_id": "1",
+        "object_repr": "\uc548\ub155 : TedJeong to Joohyeok",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2017-02-06T15:52:35.286Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "object_id": "2",
+        "object_repr": "\ub204\uad6c\ub0d0\ub10c : Joohyeok to TedJeong",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2017-02-06T16:03:47.613Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "3",
+        "object_repr": "joo",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2017-02-06T16:17:42.769Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "object_id": "2",
+        "object_repr": "\ub204\uad6c\ub0d0\ub10c : Joohyeok to TedJeong",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2017-02-06T16:17:42.869Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "object_id": "1",
+        "object_repr": "\uc548\ub155 : TedJeong to Joohyeok",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2017-02-06T16:19:37.690Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "object_id": "3",
+        "object_repr": "\uc548\ub155 : TedJeong to Joohyeok",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2017-02-06T16:19:49.484Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "usermessage"
+        ],
+        "object_id": "4",
+        "object_repr": "\uc751 : Joohyeok to TedJeong",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2017-02-09T12:41:26.934Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "1",
+        "object_repr": "TedJeong",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2017-02-09T13:52:54.410Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "3",
+        "object_repr": "joo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_age\", \"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2017-02-09T13:53:00.325Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "3",
+        "object_repr": "joo",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2017-02-09T14:01:58.210Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "1",
+        "object_repr": "TedJeong",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2017-02-09T14:02:03.655Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "1",
+        "object_repr": "TedJeong",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2017-02-09T14:02:08.311Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "3",
+        "object_repr": "joo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2017-02-09T14:02:20.419Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "2",
+        "object_repr": "Joohyeok",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2017-02-09T14:02:37.582Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "2",
+        "object_repr": "Joohyeok",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2017-02-10T12:20:20.405Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "4",
+        "object_repr": "Jeong",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2017-02-10T13:38:30.875Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "3",
+        "object_repr": "joo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2017-02-10T13:38:41.058Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "3",
+        "object_repr": "joo",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2017-02-11T04:24:22.387Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "1",
+        "object_repr": "TedJeong",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"profile_photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2017-02-11T04:24:27.212Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "1",
+        "object_repr": "TedJeong",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2017-02-12T03:32:34.380Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "1",
+        "object_repr": "progress_PM page-50.00%",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2017-02-12T03:33:20.434Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "2",
+        "object_repr": "progress_Image Analyzer-20%",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2017-02-12T04:18:23.743Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "3",
+        "object_repr": "progress_PM page_all-10%",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2017-02-12T04:18:33.622Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "3",
+        "object_repr": "progress_PM page_all-60%",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"progress_member\", \"progress_gauge\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2017-02-12T08:50:44.237Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "object_id": "7",
+        "object_repr": "task_\ud14c\uc2a4\ud2b81-controller_main - ['porfolio'] name: project_summa at 2017-02-01 13:53:49.442659+00:00 : ProjectManager.Member.None",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2017-02-12T08:50:54.910Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "task"
+        ],
+        "object_id": "8",
+        "object_repr": "task_\ud14c\uc2a4\ud2b82-controller_main - ['porfolio'] name: project_summa at 2017-02-01 13:53:49.442659+00:00 : ProjectManager.Member.None",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2017-02-13T03:34:38.791Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "controller_main - ['porfolio'] name: project_test1 at 2017-02-13 03:34:38.782010+00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2017-02-13T03:35:16.610Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "controller_main - ['porfolio'] name: project_myplace at 2017-02-13 03:35:16.600319+00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2017-02-13T04:32:01.731Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "object_id": "4",
+        "object_repr": "controller_main - ['porfolio'] name: Summa_l_07 at 2017-02-13 04:32:01.715869+00:00",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2017-02-13T04:35:05.971Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "project"
+        ],
+        "object_id": "4",
+        "object_repr": "controller_main - ['porfolio', 'dummyWS1'] name: Summa_l_07 at 2017-02-13 04:35:05.961297+00:00",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2017-02-13T13:32:34.372Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "4",
+        "object_repr": "Jeong",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"projectinfo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2017-02-13T13:32:37.679Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "4",
+        "object_repr": "Jeong",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2017-02-13T13:32:44.541Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "5",
+        "object_repr": "Hee",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"projectinfo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2017-02-13T13:33:50.564Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "2",
+        "object_repr": "joo-freelancer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"member_name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2017-02-13T13:33:56.355Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "3",
+        "object_repr": "Jeong-project manager",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"member_name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2017-02-13T13:34:07.657Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "4",
+        "object_repr": "Joohyeok-team manager",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"member_name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2017-02-13T13:34:12.508Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "5",
+        "object_repr": "Hee-backend programmer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"member_name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2017-02-13T13:41:55.028Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "UserProfile",
+            "userprofile"
+        ],
+        "object_id": "6",
+        "object_repr": "Jenny",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"projectinfo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2017-02-13T13:42:05.393Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "member"
+        ],
+        "object_id": "6",
+        "object_repr": "Jenny-frontend programmer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"member_name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2017-02-19T12:26:56.566Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "3",
+        "object_repr": "progress_PM page_all-0.6%",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"progress_gauge\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2017-02-19T12:27:02.502Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "2",
+        "object_repr": "progress_Image Analyzer-0.2%",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"progress_gauge\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2017-02-19T12:27:07.475Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "1",
+        "object_repr": "progress_PM page-0.5%",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"progress_gauge\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2017-02-19T12:44:09.091Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "3",
+        "object_repr": "progress_PM page_all-0.1%",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"progress_gauge\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2017-02-19T12:44:12.097Z",
+        "user": [
+            "joo"
+        ],
+        "content_type": [
+            "ProjectManager",
+            "progress"
+        ],
+        "object_id": "1",
+        "object_repr": "progress_PM page-0.50%",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+}
+]

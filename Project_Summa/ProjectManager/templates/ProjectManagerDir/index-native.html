@@ -1,0 +1,1472 @@
+{% extends 'ProjectManagerDir/base.html' %}
+{% load static %}
+{% load profile_tag %}
+{% load bootstrap3 %}
+{% block page-header %} ProjectManager {% endblock %}
+{% block page-sub-header %} ProjectManager Analytics {% endblock %}
+{% block cssimport %}
+
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css" rel="stylesheet">
+    <!-- responsive : category-workspace-table -->
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.dataTables.min.css" rel="stylesheet">
+
+    <!-- FullCalendar -->
+    <link href="{% static 'vendor/fullcalendar/dist/fullcalendar.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/fullcalendar/dist/fullcalendar.print.css' %}" rel="stylesheet" media="print">
+
+
+    <style>
+.controller-form-table > th, td{
+  padding:15px;
+}
+
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.node circle {
+  fill: #999;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.node--internal circle {
+  fill: #555;
+}
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+
+        .imagewrap {display:inline-block;position:relative;}
+        .button1 {position:absolute;bottom:0;left:0;}
+        .button2 {position:absolute;bottom:0;right:0;}
+        .button3 {position:absolute;right:50%;top:50%;}
+
+        #img_container {
+            display:inline-block;
+            position:relative;
+            text-align:center;
+            border:1px solid red;
+        }
+        .img_container_button {
+            position:absolute;
+            right:50%;
+            top:50%;
+            opacity:0;
+        }
+        .img_container_button:hover{
+            opacity:1;
+        }
+
+        .image-containers {
+            position: relative;
+            width: 200px;
+            height: 300px;
+        }
+        .image-containers .after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            color: #FFF;
+        }
+        .image-containers:hover .after {
+            display: block;
+            background: rgba(0, 0, 0, .6);
+        }
+        .image-containers:hover .after .after_innerbutton{
+            display: block;
+            position :absolute;
+            top: 45%;
+            left: 45%;
+        }
+
+
+        .card-image-containers {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .card-image-containers .card-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            color: #FFF;
+        }
+        .card-image-containers:hover .card-after {
+            display: block;
+            background: rgba(0, 0, 0, .6);
+        }
+        .card-image-containers:hover .card-after .card-after-innerbutton{
+            display: block;
+            position :absolute;
+            top: 45%;
+            left: 45%;
+        }
+
+        .glyphicon.glyphicon-play-circle {
+            font-size: 200%;
+        }
+
+        .colorbrown{color:#9b846b}
+
+
+        /*member-categorization-graph d3js*/
+        svg {
+            font: 12px sans-serif;
+        }
+
+        text {
+            pointer-events: none;
+        }
+
+        .inner_node rect {
+            pointer-events: all;
+        }
+
+        .inner_node rect.highlight {
+            stroke: #315B7E;
+            stroke-width: 2px;
+        }
+
+        .outer_node circle {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+            pointer-events: all;
+        }
+
+        .outer_node circle.highlight
+        {
+            stroke: #315B7E;
+            stroke-width: 2px;
+        }
+
+        .link {
+            fill: none;
+        }
+
+        /* collapsible-tree */
+        .node {
+          cursor: pointer;
+        }
+
+        .node circle {
+          fill: #fff;
+          stroke: steelblue;
+          stroke-width: 1.5px;
+        }
+
+        .node text {
+          font: 10px sans-serif;
+        }
+
+        .link {
+          fill: none;
+          stroke: #ccc;
+          stroke-width: 1.5px;
+        }
+
+    </style>
+{% endblock %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block bodycontent %}
+        <p style="padding-top: 70px;"></p>
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <button class="btn btn-primary btn-lg btn-controller-post" data-toggle="modal"
+                                        data-target="#controller-post-modal">create controller</button>
+                <button class="btn btn-primary btn-lg" value="">create workspace</button>
+                <button class="btn btn-default btn-lg btn-category-post" data-toggle="modal"
+                                        data-target="#category-post-modal">create category</button>
+                <button class="btn btn-warning btn-lg btn-project-post" data-toggle="modal"
+                                        data-target="#project-post-modal">create project</button>
+              </div>
+            </div>
+
+            <!-- add controller, workspace, category, project modal -->
+            <div class="container">
+              <!-- Project Post Modal -->
+              <div class="modal fade" id="project-post-modal" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Project Post</h4>
+                    </div>
+                      <form action="/projectmanager/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form projectform %}
+                        <input type="submit" class="btn btn-primary" name="projectform_submit" value="submit">
+                          <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                      </form>
+                        <!--{% include 'ProjectManagerDir/task-form-django-admin.html' %}-->
+                  </div>
+
+                </div>
+              </div>
+              <!-- Category Post Modal -->
+              <div class="modal fade" id="category-post-modal" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Category Post</h4>
+                    </div>
+                      <form action="/projectmanager/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form categoryform %}
+                        <input type="submit" class="btn btn-primary" name="categoryform_submit" value="submit">
+                          <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                      </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- start controller  -->
+            <div class="controller">
+              <!-- controller menus -->
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-chevron-down"></i> Controller <small>manages categories and workspaces</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <ul class="nav nav-pills" role="tablist">
+                      <li role="presentation"><a href="#">Regular link</a>
+                      </li>
+                      <li role="presentation" class="dropdown">
+                        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                          ControllerFirstDown
+                          <span class="caret"></span>
+                        </a>
+                        <ul id="menu6" class="dropdown-menu animated fadeInDown" role="menu">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Category Tree</a>
+                          </li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Current controller graph</a>
+                          </li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+                          </li>
+                        </ul>
+                      </li>
+                        <li>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#category-choose-modal">Open Category</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#workspace-choose-modal">Open Workspace</button>
+                        </li>
+                    </ul>
+
+                    <!-- Choose Category Modal -->
+                    <div class="container">
+                          <div class="modal fade" id="category-choose-modal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Choose Category</h4>
+                                </div>
+                                  <form action="/projectmanager/" method="post">
+                                    {% csrf_token %}
+                                  <select class="selectpicker" name="category-open-select" multiple>
+                                      {% for category in categories %}
+                                        <option name="{{ category.pk }}" value="{{ category.pk }}">{{ category.category_name }}</option>
+                                      {% endfor %}
+                                  </select>
+
+                                    <input type="submit" class="btn btn-primary" name="category-select" value="submit">
+                                  </form>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
+                    <!-- Choose Workspace Modal -->
+                    <div class="container">
+                          <!-- Post Modal -->
+                          <div class="modal fade" id="workspace-choose-modal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Choose Workspace</h4>
+                                </div>
+                                  <form action="/projectmanager/" method="post">
+                                    {% csrf_token %}
+                                  <select class="selectpicker" name="workspace-open-select" multiple>
+                                      {% for workspace in workspaces %}
+                                        <option name="{{ workspace.pk }}" value="{{ workspace.pk }}">{{ workspace.workspace_name }}</option>
+                                      {% endfor %}
+                                  </select>
+
+                                    <input type="submit" class="btn btn-primary" name="workspace-select" value="submit">
+                                  </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    <!-- start whole project lists  -->
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2> Categories and Workspaces <small>whole projects</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+
+                            <p class="text-muted font-13 m-b-30">
+                              Whole projects lists.
+                            </p>
+                            <table id="ctr1-catogory-workspace-table" class="display responsive nowrap" cellspacing="0" width="100%">
+                              <thead>
+                                <tr>
+                                  <th>Category</th>
+                                  <th>Workspace</th>
+                                  <th>Project Title</th>
+                                  <th>Team members</th>
+                                  <th>Start date</th>
+                                  <th>Deadline</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for project in projects %}
+                                <tr>
+                                    <td>{{ project.project_category.category_name }}</td>
+                                    <td>
+                                      {% for pw_names in projects_workspace_names %}
+                                        {% if forloop.counter0 == forloop.parentloop.revcounter0 %}
+                                        {% for pw_name in pw_names %}
+                                          {{ pw_name }}
+                                        {% endfor %}
+                                        {% endif %}
+                                      {% endfor %}
+                                    </td>
+                                    <td>{{ project.project_name }}</td>
+                                    <td>
+                                        {% for member in members %}
+                                          {% if member|member_project_check:project %}
+                                              {{ member.member_name }}
+                                          {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                    <td>
+                                      {{ project.project_start_date }}
+                                    </td>
+                                    <td>
+                                      {{ project.project_deadline }}
+                                    </td>
+                                    <td>
+                                      <a class="view-project-instance" style="cursor:pointer;"><i class="fa fa-tag"></i>
+                                      view project</a>
+                                      <a class="view-category-instance" style="cursor:pointer;"><i class="fa fa-tags"></i>
+                                      view category</a>
+                                      <a class="view-workspace-instance" style="cursor:pointer;"><i class="fa fa-tasks"></i>
+                                      view workspace</a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                  <p> 게시물이 없습니다. </p>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- end whole project lists -->
+
+                    <!-- start whole task list -->
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>TODO Task List <small> for whole </small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <!-- task-table-wrapper-->
+                            <div class="task-table-wrapper">
+                              <table id="ctr1-task-table1" class="display" width="100%" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <th></th>
+                                    <th style="display:none;"></th>
+                                    <th>priority</th>
+                                    <th>task name</th>
+                                    <th>task submitter</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for task in tasks %}
+                                  <tr>
+                                    <td></td>
+                                    <td class="task-pk" style="display:none;">{{task.pk}}</td>
+                                    <td>{{ task.task_priority }}</td>
+                                    <td>{{ task.task_name }}</td>
+                                    <td>{{ task.task_submitter }} </td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+
+                              <div>
+                                <button class="btn btn-primary btn-sm btn-task-post" data-toggle="modal"
+                                        data-target="#task-post-modal">POST</button>
+                                <button class="btn btn-danger btn-sm btn-task-delete" data-toggle="modal"
+                                        data-target="#task-delete-confirm-modal">DELET</button>
+                              </div>
+                            </div>
+                            <!-- task-table-wrapper ends -->
+
+                            <!-- add task modal -->
+                            <div class="container">
+                              <!-- Task Post Modal -->
+                              <div class="modal fade" id="task-post-modal" role="dialog">
+                                <div class="modal-dialog">
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Task Post</h4>
+                                    </div>
+                                      <form action="/projectmanager/" method="post">
+                                        {% csrf_token %}
+                                        {% bootstrap_form taskform %}
+                                        <input type="submit" class="btn btn-primary" name="taskform_submit" value="submit">
+                                          <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                                      </form>
+                                        <!--{% include 'ProjectManagerDir/task-form-django-admin.html' %}-->
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- delete confirmation modal -->
+                            <div class="container">
+                              <!-- Task Post Modal -->
+                              <div class="modal fade" id="task-delete-confirm-modal" role="dialog">
+                                <div class="modal-dialog">
+
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Task delete confirmation</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p> Are you sure to delete ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="submit" id="delete_yes_button1" class="btn btn-default delete_yes_button"
+                                              data-dismiss="modal" name="delete_task" value="1">Yes</button>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                          </div>
+                        </div>
+                      </div>
+                    <!-- end whole task list -->
+
+                    <!-- start whole contributor rank -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2> Contribution Ranker</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+
+                            <table id="ctrl-contribution-ranker" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <th>rank</th>
+                                    <th>name</th>
+                                    <th>progress</th>
+                                    <th>dep.</th>
+                                </thead>
+                                <tbody>
+                                {% for member in members %}
+                                    <tr>
+                                        <td> {{ forloop.counter0|add:1 }} </td>
+                                        <td> {{ member.member_name }} </td>
+                                        <td> {{ member|member_progress_sum}} </td>
+                                        <td> {{ member.member_department }} </td>
+                                    <tr/>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+{##}
+{#                            <div class="">#}
+{#                              <ul class="to_do">#}
+{#                                {% for member in members %}#}
+{#                                  <li>#}
+{#                                  <p> {{ member.member_name }} : {{ member|member_progress_sum}} <p>#}
+{#                                </li>#}
+{#                                {% endfor %}#}
+{#                              </ul>#}
+{#                            </div>#}
+                          </div>
+                        </div>
+                      </div>
+                    <!-- end whole contributor rank  -->
+
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <!-- end controller -->
+
+
+        {% for selected_category in categories_selected %}
+            <!-- start category -->
+            <div class="category">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> {{ selected_category.category_name }} <small>selected category</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="reload-link"><i class="fa fa-refresh"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Current Projects</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Previous Projects</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Task Relation Directed Graph</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Task Feature abstraction</a>
+                        </li>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">Member/Resource Categorization</a>
+                        </li>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content6" role="tab" id="profile-tab5" data-toggle="tab" aria-expanded="false">Search available architecture Dependency tree</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content7" role="tab" id="profile-tab6" data-toggle="tab" aria-expanded="false">Collapsible tree</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                            <p></p>
+
+                              <!-- proejects controller inside home panel -->
+                              <div class="x_panel">
+                                <div class="x_title">
+                                  <h2>Projects related to this Category</h2>
+                                  <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Settings 1</a>
+                                        </li>
+                                        <li><a href="#">Settings 2</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                  </ul>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                  <p>Simple table with project listing with progress and editing options</p>
+
+                                  <!-- start project list -->
+                                  <table id="project-panel-project-table" class="display responsive nowrap" cellspacing="0" width="100%">
+                                    <thead>
+                                      <tr>
+                                          <th></th>
+                                        <th style="width: 1%">#</th>
+                                        <th style="width: 20%">Project Name</th>
+                                        <th>Team Members</th>
+                                        <th>Project Progress</th>
+                                        <th>Start Date</th>
+                                        <th style="width: 20%">Deadline</th>
+                                          <th>Edit</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                {% for project in projects %}
+                                    {% with project.project_category.category_name as catsel %}
+                                        {% if catsel == selected_category.category_name %}
+                                <tr>
+                                <td></td>
+                                    <td>{{ forloop.counter0 }}</td>
+                                    <td>{{ project.project_name }}</td>
+                                    <td>
+
+                                    {% for member in members %}
+                                      {% if member|member_project_check:project %}
+                                          {{ member.member_name }}
+                                      {% endif %}
+                                    {% endfor %}
+
+                                    <ul class="list-inline">
+                                        {% for member in members %}
+                                            {% if member|member_project_check:project %}
+                                            <li>
+                                            {% if member.userprofile.profile_photo|check_profile_photo_bool%}
+                                              <img src="/media/{{ member.userprofile.user.username }}/info/profile-photo_{{ member.userprofile.user.username }}_{{ member.userprofile.user.pk }}.jpg" class="avatar" alt="Avatar">
+                                                {% else %}
+                                            <img src="{% static 'img/bear.svg' %}" class="avatar" alt="Avatar">
+                                                {% endif %}
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                      </ul>
+
+                                    </td>
+                                    <td>{{ project|project_progress_sum }}</td>
+                                    <td>
+                                      {{ project.project_start_date }}
+                                    </td>
+                                    <td>
+                                      {{ project.project_deadline }}
+                                    </td>
+                                <td>
+                                          <a href="#" class="btn btn-primary btn-xs view-project-detail"><i class="fa fa-folder"></i> View </a>
+                                          <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                </td>
+                                </tr>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% endfor %}
+
+
+                                    </tbody>
+                                  </table>
+                                  <!-- end project list -->
+
+                                </div>
+                              </div>
+                              <!-- end proejects  inside home panel -->
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                            <p style="padding-top: 10px"></p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          <p style="padding-top: 10px">Task Relation Directed Graph</p>
+                          <div id="task-relation-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                          <p style="padding-top: 10px">Task Feature abstraction</p>
+                          <div id="member-categorization-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
+                          <p style="padding-top: 10px">Member/Resource Categorization</p>
+                          <div id="member-categorization-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content6" aria-labelledby="profile-tab">
+                            <p style="padding-top: 10px"></p>
+                            <div id="search-able-architecture-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content7" aria-labelledby="profile-tab">
+                            <p style="padding-top: 10px"></p>
+                            <div id="collapsible-tree"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="clearfix"></div>
+                      <!-- start category projects task list -->
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>TODO Task List <small>under current category</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+
+                            <div class="">
+                              <ul class="to_do">
+                                  {% for task in tasks %}
+                                      {% if task.task_project.project_category.category_name == selected_category.category_name and task.task_status == False %}
+                                    <li>
+                                      <p>{{ task.task_name }} - {{ task.task_description }}</p>
+                                    </li>
+                                      {% endif %}
+                                  {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end category projects task list -->
+                      <!-- start category projects Done list -->
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>Done List <small>Sample tasks</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+
+                            <div class="">
+
+                              <ul class="to_do">
+                                  {% for task in tasks %}
+                                      {% if task.task_project.project_category.category_name == selected_category.category_name and task.task_status == True %}
+                                    <li>
+                                      <p>{{ task.task_name }} - {{ task.task_description }}</p>
+                                    </li>
+                                      {% endif %}
+                                  {% endfor %}
+                              </ul>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end category projects Done list -->
+                    </div>
+                    <!-- content end-->
+                </div>
+              </div>
+            </div>
+            <!-- end category -->
+        {% endfor %}
+
+        {% for selected_workspace in workspaces_selected %}
+            <!-- start workspace -->
+            <div class="workspace">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> {{ selected_workspace.workspace_name }} <small>workspace name</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="reload-link"><i class="fa fa-refresh"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <!-- start project detail containers-->
+                      <div class="project-detail-container">
+                        <!-- start project detail -->
+                        {% for project_in_workspace in selected_workspace|project_in_workspace %}
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                              <div class="x_title">
+                                <h2> {{ project_in_workspace.project_name }} - {{ project_in_workspace.project_category.category_name }} </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                  </li>
+                                  <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li><a href="#">Settings 1</a>
+                                      </li>
+                                      <li><a href="#">Settings 2</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                  </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                              </div>
+
+                              <div class="x_content">
+
+                                <!-- start project-detail sidebar -->
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                  <section class="panel">
+
+                                    <div class="x_title">
+                                      <h2>Project Description</h2>
+                                      <div class="clearfix"></div>
+                                    </div>
+                                    <div class="panel-body">
+                                      <h3 class="green"><i class="fa fa-paint-brush"></i> {{ project_in_workspace.project_name }}</h3>
+                                      <p></p>
+                                      <br />
+
+                                      <div class="project_detail">
+
+                                        <p class="title">Client Company</p>
+                                        <p>Deveint Inc</p>
+                                        <p class="title">Project Leader</p>
+                                        <p>Tony Chicken</p>
+                                      </div>
+
+                                      <br />
+                                      <h5>Project files</h5>
+                                      <ul class="list-unstyled project_files">
+                                        <li><a href=""><i class="fa fa-file-word-o"></i> Functional-requirements.docx</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-pdf-o"></i> UAT.pdf</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-mail-forward"></i> Email-from-flatbal.mln</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-picture-o"></i> Logo.png</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-word-o"></i> Contract-10_12_2014.docx</a>
+                                        </li>
+                                      </ul>
+                                      <br />
+
+                                      <div class="text-center mtop20">
+                                        <a href="#" class="btn btn-sm btn-primary">Add files</a>
+                                        <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+                                      </div>
+                                    </div>
+
+                                  </section>
+
+                                    <!-- project-strength-spider-map -->
+                                    <div id="project-strength-spider-map" style="min-width: 310px; max-width: 400px; height: 400px; margin: 0 auto"></div>
+
+                                </div>
+                                <!-- end project-detail sidebar -->
+
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <!-- start top resource panel -->
+                                  <ul class="stats-overview">
+                                    <li>
+                                      <span class="name"> Estimated budget </span>
+                                      <span class="value text-success"> 2300 </span>
+                                    </li>
+                                    <li>
+                                      <span class="name"> Total amount spent </span>
+                                      <span class="value text-success"> 2000 </span>
+                                    </li>
+                                    <li class="hidden-phone">
+                                      <span class="name"> Estimated project duration </span>
+                                      <span class="value text-success"> 20 </span>
+                                    </li>
+                                  </ul>
+                                  <!-- end top resource panel -->
+                                  <br />
+
+                                  <div id="mainb" style="height:350px;">
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                      <div id="resource-pie-graph" style="min-width: 310px; max-width: 400px; height: 400px; margin: 0 auto"></div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                      <div id="task-try-open-date-duration" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <!-- start task lists -->
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <div class="x_panel">
+                                        <div class="x_title">
+                                          <h2><i class="fa fa-align-left"></i> Task lists <small>Sessions</small></h2>
+                                          <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li class="dropdown">
+                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                              <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                              </ul>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                          </ul>
+                                          <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+
+                                          <!-- start task list contained in a project : arccordion -->
+                                          <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                                            {% for task_in_project_in_workspace in project_in_workspace|get_tasks_in_project %}
+                                            <div class="panel">
+
+                                              <a class="panel-heading" role="tab" id="heading{{ forloop.counter0 }}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter0 }}">
+                                                <div>
+                                                  <h4 class="panel-title">{{ task_in_project_in_workspace.task_name }}</h4>
+                                                  <i class="fa fa-pencil-square-o"></i>
+                                                </div>
+                                                  <div class="progress">
+                                                      <div class="progress-bar .progress-bar-success" role="progressbar" aria-valuenow="{{ task_in_project_in_workspace.task_progress|mul_100 }}"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width:{{ task_in_project_in_workspace.task_progress|mul_100 }}%">
+                                                        {{ task_in_project_in_workspace.task_progress|mul_100 }}
+                                                      </div>
+                                                    </div>
+
+                                              </a>
+                                                <!-- heading down -->
+                                              <div id="collapse{{ forloop.counter0 }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ forloop.counter0 }}">
+                                                <div class="panel-body">
+                                                    <p>contributor table</p>
+                                                  <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>#</th>
+                                                        <th>Name</th>
+                                                        <th>progress</th>
+                                                        <th>opendate</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for member_in_task_in_project_in_workspace in task_in_project_in_workspace|get_members_in_task %}
+                                                      <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>{{ member_in_task_in_project_in_workspace.member_name }}</td>
+                                                        <td>{{ task_in_project_in_workspace|get_member_gauge_in_task:member_in_task_in_project_in_workspace }}</td>
+                                                        <td>{{ task_in_project_in_workspace|get_member_opendate_in_task:member_in_task_in_project_in_workspace }}</td>
+                                                      </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            {% endfor %}
+
+                                            <div class="text-center">
+                                              <ul class="pagination">
+                                                <li><a href="">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                              </ul>
+                                            </div>
+
+                                          </div>
+                                          <!-- end of accordion -->
+
+
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+                                  </div>
+                                  <!-- end task lists -->
+                                  <div class="clearfix"></div>
+
+
+                                  <!-- start project to do list -->
+                                  <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                      <div class="x_title">
+                                        <h2>TODO List <small>pre task lists under current project</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                          </li>
+                                          <li><a class="">
+                                            <i class="fa fa-pencil-square-o"></i></a>
+                                          </li>
+                                          <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                              <li><a href="#">Settings 1</a>
+                                              </li>
+                                              <li><a href="#">Settings 2</a>
+                                              </li>
+                                            </ul>
+                                          </li>
+                                          <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                          </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                      </div>
+                                      <div class="x_content">
+                                        <div class="">
+                                          <ul class="to_do">
+                                            {% for task in project_in_workspace|get_tasks_in_project %}
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> {{ task.task_name }} - {{ task.task_description }} </p>
+                                            </li>
+                                            {% endfor %}
+                                          </ul>
+                                        </div>
+                                        <div id="project-to-do-list-state-button-sets">
+                                          <button class="btn btn-primary btn-sm">POSTf</button>
+                                          <button class="btn btn-danger btn-sm">DELET</button>
+                                        </div>
+                                        <div class="text-center">
+                                          <ul class="pagination">
+                                            <li><a href="">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- end project to do list -->
+
+                                  <!-- start calendar -->
+
+                                  <div class="col-md-6">
+                                    <div class="x_panel">
+                                      <div class="x_title">
+                                        <h2>Calendar Events <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                          </li>
+                                          <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                              <li><a href="#">Settings 1</a>
+                                              </li>
+                                              <li><a href="#">Settings 2</a>
+                                              </li>
+                                            </ul>
+                                          </li>
+                                          <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                          </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                      </div>
+                                      <div class="x_content">
+
+                                        <div id="calendar{{ forloop.counter0 }}"></div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- end calendar -->
+
+                                  <!-- calendar modal -->
+                                    <div id="CalenderModalNew{{ forloop.counter0 }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            <div id="testmodal{{ forloop.counter0 }}" style="padding: 5px 20px;">
+                                              <form id="antoform" class="form-horizontal calender" role="form">
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Title</label>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="title{{ forloop.counter0 }}" name="title{{ forloop.counter0 }}">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Description</label>
+                                                  <div class="col-sm-9">
+                                                    <textarea class="form-control" style="height:55px;" id="descr{{ forloop.counter0 }}" name="descr{{ forloop.counter0 }}"></textarea>
+                                                  </div>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div id="CalenderModalEdit{{ forloop.counter0 }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+                                          </div>
+                                          <div class="modal-body">
+
+                                            <div id="testmodal{{ forloop.counter0 }}" style="padding: 5px 20px;">
+                                              <form id="antoform{{ forloop.counter0 }}" class="form-horizontal calender" role="form">
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Title</label>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="title{{ forloop.counter0 }}" name="title{{ forloop.counter0 }}">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Description</label>
+                                                  <div class="col-sm-9">
+                                                    <textarea class="form-control" style="height:55px;" id="descr{{ forloop.counter0 }}" name="descr{{ forloop.counter0 }}"></textarea>
+                                                  </div>
+                                                </div>
+
+                                              </form>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div id="fc_create{{ forloop.counter0 }}" data-toggle="modal" data-target="#CalenderModalNew{{ forloop.counter0 }}"></div>
+                                    <div id="fc_edit{{ forloop.counter0 }}" data-toggle="modal" data-target="#CalenderModalEdit{{ forloop.counter0 }}"></div>
+                                <!-- /calendar modal -->
+
+
+
+                                  <div class="clearfix"></div>
+                                  <!-- Recent Activity -->
+                                  <div>
+
+                                    <h4>Recent Activity</h4>
+
+                                    <!-- end of user messages -->
+                                    <ul class="messages">
+                                      <li>
+                                        <img src="{% static 'img/img.jpg' %}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                          <h3 class="date text-info">24</h3>
+                                          <p class="month">May</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                          <h4 class="heading">Desmond Davison</h4>
+                                          <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                          <br />
+                                          <p class="url">
+                                            <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                            <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                          </p>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <img src="{% static 'img/img.jpg' %}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                          <h3 class="date text-error">21</h3>
+                                          <p class="month">May</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                          <h4 class="heading">Brian Michaels</h4>
+                                          <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                          <br />
+                                          <p class="url">
+                                            <span class="fs1" aria-hidden="true" data-icon=""></span>
+                                            <a href="#" data-original-title="">Download</a>
+                                          </p>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <img src="{% static 'img/img.jpg' %}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                          <h3 class="date text-info">24</h3>
+                                          <p class="month">May</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                          <h4 class="heading">Desmond Davison</h4>
+                                          <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                          <br />
+                                          <p class="url">
+                                            <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                            <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                          </p>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                    <!-- end of user messages -->
+
+
+                                  </div>
+                                  <!-- end Recent Activity -->
+
+                                </div>
+
+                              </div>
+
+
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        <!-- end project detail -->
+                      </div>
+                      <!-- end project detail containers-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end workspace -->
+        {% endfor %}
+        </div>
+
+
+
+
+
+{% endblock %}
+{% block jsimport %}
+
+    <!-- FastClick -->
+    <script src="{% static 'vendor/fastclick/lib/fastclick.js' %}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'build/js/custom.min.js' %}"></script>
+
+
+    <!-- Custom Notification -->
+    <script>
+      $(document).ready(function() {
+        var cnt = 10;
+
+        TabbedNotification = function(options) {
+          var message = "<div id='ntf" + cnt + "' class='text alert-" + options.type + "' style='display:none'><h2><i class='fa fa-bell'></i> " + options.title +
+            "</h2><div class='close'><a href='javascript:;' class='notification_close'><i class='fa fa-close'></i></a></div><p>" + options.text + "</p></div>";
+
+          if (!document.getElementById('custom_notifications')) {
+            alert('doesnt exists');
+          } else {
+            $('#custom_notifications ul.notifications').append("<li><a id='ntlink" + cnt + "' class='alert-" + options.type + "' href='#ntf" + cnt + "'><i class='fa fa-bell animated shake'></i></a></li>");
+            $('#custom_notifications #notif-group').append(message);
+            cnt++;
+            CustomTabs(options);
+          }
+        };
+
+        CustomTabs = function(options) {
+          $('.tabbed_notifications > div').hide();
+          $('.tabbed_notifications > div:first-of-type').show();
+          $('#custom_notifications').removeClass('dsp_none');
+          $('.notifications a').click(function(e) {
+            e.preventDefault();
+            var $this = $(this),
+              tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
+              others = $this.closest('li').siblings().children('a'),
+              target = $this.attr('href');
+            others.removeClass('active');
+            $this.addClass('active');
+            $(tabbed_notifications).children('div').hide();
+            $(target).show();
+          });
+        };
+
+        CustomTabs();
+
+        var tabid = idname = '';
+
+        $(document).on('click', '.notification_close', function(e) {
+          idname = $(this).parent().parent().attr("id");
+          tabid = idname.substr(-2);
+          $('#ntf' + tabid).remove();
+          $('#ntlink' + tabid).parent().remove();
+          $('.notifications a').first().addClass('active');
+          $('#notif-group div').first().css('display', 'block');
+        });
+      });
+    </script>
+    <!-- /Custom Notification -->
+
+    <!-- Check Whether user intended to close the x_panel -->
+    <script>
+      $('i[class="fa fa-close"]').on('click',function(e){
+        var r = confirm("Press a button");
+        if (r == true) {
+            x = "";
+        } else {
+            x = "You pressed Cancel!";
+        }
+      });
+    </script>
+
+{#    <script src="https://d3js.org/d3.v4.min.js"></script>#}
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- Crash with vendor jquery -->
+{#    <script src="{% static 'js/jquery-1.24.js' %}"></script>#}
+
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
+    <!-- responsive : category-workspace-table -->
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+
+    <!-- FullCalendar -->
+    <script src="{% static 'vendor/moment/min/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/fullcalendar/dist/fullcalendar.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/Summa_ProjectManager_tmp.js' %}"></script>
+
+    {% include 'ProjectManagerDir/calender.html' %}
+
+
+{% endblock %}

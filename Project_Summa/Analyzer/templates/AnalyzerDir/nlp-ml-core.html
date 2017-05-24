@@ -1,0 +1,52 @@
+{% extends 'AnalyzerDir/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block page-header %} Analyzer {% endblock %}
+{% block page-sub-header %} nlp-core {% endblock %}
+{% block cssimport %}
+
+    <!-- NProgress -->
+    <link href="{% static 'vendor/nprogress/nprogress.css' %}" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="{% static 'vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet">
+
+    <!-- select bootstrap -->
+    <!--https://github.com/silviomoreto/bootstrap-select-->
+    <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block bodycontent %}
+{% endblock %}
+
+{% block jsimport %}
+
+    <!-- Cookie -->
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'vendor/fastclick/lib/fastclick.js' %}"></script>
+    <!-- NProgress -->
+    <script src="{% static 'vendor/nprogress/nprogress.js' %}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+    <!-- iCheck -->
+    <script src="{% static 'vendor/iCheck/icheck.min.js' %}"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'build/js/custom.js' %}"></script>
+
+    <!-- Check Whether user intended to close the x_panel -->
+    <script>
+      $('i[class="fa fa-close"]').on('click',function(e){
+        var r = confirm("Press a button");
+        if (r == true) {
+            x = "";
+        } else {
+            x = "You pressed Cancel!";
+        }
+      });
+    </script>
+{% endblock %}

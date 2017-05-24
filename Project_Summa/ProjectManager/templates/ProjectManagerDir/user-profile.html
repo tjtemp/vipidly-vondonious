@@ -1,0 +1,536 @@
+{% extends 'ProjectManagerDir/base.html' %}
+{% load static %}
+{% load profile_tag %}
+{% load bootstrap3 %}
+{% block page-header %} ProjectManager {% endblock %}
+{% block page-sub-header %} ProjectManager Analytics {% endblock %}
+{% block cssimport %}
+
+    <!-- Custom Theme Style -->
+    <link href="{% static 'build/css/custom.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
+
+{% endblock %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block bodycontent %}
+    <p style="padding-top:50px;"></p>
+
+    <!-- start User Profile Card -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2> User Profile Card <small> user information </small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            {{ user.username }} <br/>
+
+              <!-- Card contents -->
+              <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-5 col-md-8">
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    {% if request.user.userprofile.profile_photo|check_profile_photo_bool %}
+                                        <img src="/media/{{ user.user.username }}/info/profile-photo_{{ user.user.username }}_{{ user.user.pk }}.jpg" alt="#" class="img-rounded img-responsive" />
+                                     {% else %}
+                                        <img class="avatar" src="/media/common/info/avatar.jpg" alt="Avatar" />
+                                     {% endif %}
+                                </div>
+                                <div class="col-sm-6 col-md-8">
+                                    <h3>{{ user.projectinfo.member_name }}</h3>
+                                    <h4>{{ user.projectinfo.member_department }}</h4>
+                                    <small><cite title="San Francisco, USA">{{ user.profile_location }}<i class="glyphicon glyphicon-map-marker">
+                                    </i></cite></small>
+                                    <p>
+                                        <i class="glyphicon glyphicon-envelope"></i> {{ user.profile_facebook }}
+                                        <br />
+                                        <i class="glyphicon glyphicon-gift"></i> {{ user.profile_age }} </p>
+                                    <!-- Split button -->
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">
+                                            Social</button>
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span><span class="sr-only">Social</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Twitter</a></li>
+                                            <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
+                                            <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Github</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    <!-- end User Profile Card  -->
+
+
+
+    <!-- start User detail profile -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="x_panel">
+
+              <div class="x_title">
+                <h2>User Report <small>Activity report</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+
+
+              <div class="x_content">
+
+
+                  <!-- start left profile -->
+                <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                  <div class="profile_img">
+                    <div id="crop-avatar">
+                      <!-- Current avatar -->
+                      <img class="img-responsive avatar-view" src="/media/{{ user.user.username }}/info/profile-photo_{{ user.user.username }}_{{ user.user.pk }}.jpg" alt="Avatar" title="Change the avatar">
+                    </div>
+                  </div>
+                  <h3>{{ user.user.username }}</h3>
+
+                  <ul class="list-unstyled user_data">
+                    <li><i class="fa fa-map-marker user-profile-icon"></i> {{ user.profile_location }}
+                    </li>
+
+                    <li>
+                      <i class="fa fa-briefcase user-profile-icon"></i> {{ user.projectinfo.member_department }}
+                    </li>
+
+                    <li class="m-top-xs">
+                      <i class="fa fa-external-link user-profile-icon"></i>
+                      <a href="fa fa-facebook-square" target="_blank">{{ user.profile_facebook }}</a>
+                    </li>
+                  </ul>
+
+                  <!-- Trigger the modal with a button -->
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editprofileModal">Edit Profile</button>
+                  <br />
+
+                  <!-- start skills -->
+                  <h4>Skills</h4>
+                  <ul class="list-unstyled user_data">
+                    <li>
+                      <p>Web Applications</p>
+                      <div class="progress progress_sm">
+                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <p>Website Design</p>
+                      <div class="progress progress_sm">
+                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <p>Automation & Testing</p>
+                      <div class="progress progress_sm">
+                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <p>UI / UX</p>
+                      <div class="progress progress_sm">
+                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- end of skills -->
+
+                </div>
+
+                  <!-- end left profile -->
+                  <!-- start right profile -->
+                <div class="col-md-9 col-sm-9 col-xs-12">
+
+                  <div class="profile_title">
+                    <div class="col-md-6">
+                      <h2>User Activity Report</h2>
+                    </div>
+                    <div class="col-md-6">
+                      <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                      </div>
+                    </div>
+                  </div>
+                        <!-- start of user-activity-graph -->
+                      <!--<div id="graph_bar" style="width:100%; height:280px;"></div>-->
+                      <!-- end of user-activity-graph -->
+                        <div id="container" style="width:100%; height: 280px; margin: 0 auto"></div>
+                  <!-- start of user-activity-graph -->
+                  <div id="graph_bar" style="width:100%; height:280px;"></div>
+                  <!-- end of user-activity-graph -->
+
+                    <!-- start tabpanel -->
+                  <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                      <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">All Messages</a>
+                      </li>
+                      <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
+                      </li>
+                    </ul>
+
+                  <!-- start myTabContent -->
+                    <div id="myTabContent" class="tab-content">
+                        <!-- start all messages -->
+                      <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+
+                        <!-- start recent activity -->
+                      {% if is_authenticated == True %}
+
+                        <ul class="messages">
+                        {% for message in messages %}
+                          <li>
+                         {% if message.fromuser.user.userprofile.profile_photo|check_profile_photo_bool %}
+                            <img class="avatar" src= "/media/{{ message.fromuser.user.username }}/info/profile-photo_{{ message.fromuser.user.username }}_{{ message.fromuser.user.pk }}.jpg" alt="Avatar" />
+                         {% else %}
+                            <img class="avatar" src="/media/common/info/avatar.jpg" alt="Avatar" />
+                         {% endif %}
+                            <div class="message_date">
+                              <h4 class="date text-info">from. {{ message.fromuser }}</h4>
+                              <p class="month">{{ message.created_at }}</p>
+                            </div>
+                            <div class="message_wrapper">
+                              <h4 class="heading">{{ message.title }}</h4>
+                              <blockquote class="message">{{ message.content }}</blockquote>
+                              <br />
+                              <p class="url">
+                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                <!--<a href="#"><i class="fa fa-paperclip"></i> reply </a>-->
+                              </p>
+                            </div>
+                          </li>
+                        {% empty %}
+
+
+                                        <span>&nbsp 메시지 없어요!</span>
+
+
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+                        <!-- end recent activity -->
+
+                      </div>
+                        <!-- end all messages -->
+
+                        <!-- start project worked on -->
+                      <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                        <!-- start user projects -->
+                        <table class="data table table-striped no-margin">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Project Name</th>
+                              <th>Client Company</th>
+                              <th class="hidden-phone">Hours Spent</th>
+                              <th>Contribution</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>New Company Takeover Review</td>
+                              <td>Deveint Inc</td>
+                              <td class="hidden-phone">18</td>
+                              <td class="vertical-align-mid">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>New Partner Contracts Consultanci</td>
+                              <td>Deveint Inc</td>
+                              <td class="hidden-phone">13</td>
+                              <td class="vertical-align-mid">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Partners and Inverstors report</td>
+                              <td>Deveint Inc</td>
+                              <td class="hidden-phone">30</td>
+                              <td class="vertical-align-mid">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-success" data-transitiongoal="45"></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>New Company Takeover Review</td>
+                              <td>Deveint Inc</td>
+                              <td class="hidden-phone">28</td>
+                              <td class="vertical-align-mid">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-success" data-transitiongoal="75"></div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!-- end user projects -->
+
+                      </div>
+                        <!-- end project worked on -->
+                    </div>
+                  <!-- end myTabContent -->
+                  </div>
+                    <!-- end tabpanel -->
+                </div>
+                <!-- end right profile -->
+              </div>
+                <!-- end x-content -->
+            </div>
+            <!-- end x-panel -->
+        </div>
+    <!-- end User detail profile -->
+
+
+    <!-- start Edit Profile modal -->
+    <!-- Modal -->
+    <div id="editprofileModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Profile</h4>
+          </div>
+
+        <form method="POST" action="/projectmanager/user-profile" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="modal-body">
+          <p>Some text in the modal.</p>
+{#            {% for field in user_profile_form %}#}
+{#            {% endfor %}#}
+            {{ user_profile_form.as_p }}
+{#          <script>alert('yes!');</script>#}
+          </div>
+          <div class="modal-footer">
+{#            <button type="submit" class="btn btn-default" onclick="alert('clicked');">수정하기</button>#}
+            <button type="submit" class="btn btn-default">수정하기</button>
+            <button type="button" class="btn btn-default">닫기</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- end Edit Profile model -->
+
+{% endblock %}
+{% block jsimport %}
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <!-- bootstrap-daterangepicker -->
+{#    <script src="{% static 'vendors/moment/min/moment.js' %}"></script>#}
+{#    <script src="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>#}
+
+
+    <!-- User Activity Monthly Graph -->
+    <script>
+    // Get the CSV and create the chart
+        $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+
+        Highcharts.chart('container', {
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Daily Contribution'
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Contribution Rate'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+
+            series: [{
+                type: 'area',
+                name: 'USD to EUR',
+                data: data
+            }]
+        });
+    });
+    </script>
+
+
+
+    <!-- FastClick -->
+    <script src="{% static 'vendor/fastclick/lib/fastclick.js' %}"></script>
+
+    <!-- iCheck -->
+    <script src="{% static 'vendor/iCheck/icheck.min.js' %}"></script>
+    <!-- PNotify -->
+    <script src="{% static 'vendor/pnotify/dist/pnotify.js' %}"></script>
+    <script src="{% static 'vendor/pnotify/dist/pnotify.buttons.js' %}"></script>
+    <script src="{% static 'vendor/pnotify/dist/pnotify.nonblock.js' %}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'build/js/custom.min.js' %}"></script>
+
+
+    <!-- Custom Notification -->
+    <script>
+      $(document).ready(function() {
+        var cnt = 10;
+
+        TabbedNotification = function(options) {
+          var message = "<div id='ntf" + cnt + "' class='text alert-" + options.type + "' style='display:none'><h2><i class='fa fa-bell'></i> " + options.title +
+            "</h2><div class='close'><a href='javascript:;' class='notification_close'><i class='fa fa-close'></i></a></div><p>" + options.text + "</p></div>";
+
+          if (!document.getElementById('custom_notifications')) {
+            alert('doesnt exists');
+          } else {
+            $('#custom_notifications ul.notifications').append("<li><a id='ntlink" + cnt + "' class='alert-" + options.type + "' href='#ntf" + cnt + "'><i class='fa fa-bell animated shake'></i></a></li>");
+            $('#custom_notifications #notif-group').append(message);
+            cnt++;
+            CustomTabs(options);
+          }
+        };
+
+        CustomTabs = function(options) {
+          $('.tabbed_notifications > div').hide();
+          $('.tabbed_notifications > div:first-of-type').show();
+          $('#custom_notifications').removeClass('dsp_none');
+          $('.notifications a').click(function(e) {
+            e.preventDefault();
+            var $this = $(this),
+              tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
+              others = $this.closest('li').siblings().children('a'),
+              target = $this.attr('href');
+            others.removeClass('active');
+            $this.addClass('active');
+            $(tabbed_notifications).children('div').hide();
+            $(target).show();
+          });
+        };
+
+        CustomTabs();
+
+        var tabid = idname = '';
+
+        $(document).on('click', '.notification_close', function(e) {
+          idname = $(this).parent().parent().attr("id");
+          tabid = idname.substr(-2);
+          $('#ntf' + tabid).remove();
+          $('#ntlink' + tabid).parent().remove();
+          $('.notifications a').first().addClass('active');
+          $('#notif-group div').first().css('display', 'block');
+        });
+      });
+    </script>
+    <!-- /Custom Notification -->
+
+    <!-- Check Whether user intended to close the x_panel -->
+    <script>
+      $('i[class="fa fa-close"]').on('click',function(e){
+        var r = confirm("Press a button");
+        if (r == true) {
+            x = "";
+        } else {
+            x = "You pressed Cancel!";
+        }
+      });
+    </script>
+
+
+    <script src="{% static 'vendor/bootstrap-select-master/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+
+
+{% endblock %}

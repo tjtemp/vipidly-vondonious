@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+{% load static %}
+{% load profile_tag %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Summa{% endblock %}</title>
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    {% block cssimport %}{% endblock %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Custom Theme Style -->
+    <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+    <style>
+        #top-padding{
+            padding-top: 0px;
+            background: #000000;
+        }
+
+    </style>
+</head>
+<body class="nav-md">
+
+    <div class="container body">
+      <div class="main_container">
+
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+{#                <div>Icons made by <a href="http://www.flaticon.com/authors/zlatko-najdenovski" title="Zlatko Najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>#}
+              <a href="{% url 'home:index' %}" class="site_title"><img src="{% static 'img/bear_w.svg' %}" height="40"><span>Project Summa</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+                 {% if request.user.userprofile.profile_photo|check_profile_photo_bool %}
+                    <span class="image">
+                    <img src="/media/{{ request.user.username }}/info/profile-photo_{{ request.user.username }}_{{ request.user.pk }}.jpg"
+                         class="img-circle profile_img">
+                    </span>
+                 {% else %}
+                    <span class="image">
+                        <img src="/media/common/info/avatar.jpg" alt="Profile Image" style="height:60px;width:60px;object-fit: contain" align="middle"/>
+                    </span>
+                 {% endif %}
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>{{ username }}</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                    <li><a><i class="fa fa-code-fork"></i>Data Analyzer<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{% url 'analyzer:ml-core' %}">ml-core</a></li>
+
+                        <li><a href="{% url 'analyzer:kaggle-santander-product-recommendation-problem' %}">[K] Product Recommendation</a></li>
+                        <li><a href="{% url 'analyzer:kaggle-outbrain-click-prediction-problem' %}">[K] Click Prediction</a></li>
+                    </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-video-camera"></i>Visual data Analyzer<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{% url 'analyzer:image-ml-core' %}">image-ml-core</a></li>
+                      <!--<li><a href=''>Video Analysis</a></li>-->
+
+                      <li><a href="{% url 'analyzer:kaggle-state-farm-distracted-driver-problem' %}">[K] Distracted driver detection</a></li>
+                      <li><a href="{% url 'analyzer:kaggle-the-nature-conservancy-fisheries-monitoring-problem' %}">[K] Fisheries monitoring</a></li>
+                    </ul>
+                    </li>
+                    <li><a><i class="fa fa-sort-alpha-asc"></i><i class="icon-sort-by-alphabet"></i>Language Analyzer<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <!--<li><a href="#">Korean analysis</a>-->
+                          </li><li><a href="{% url 'analyzer:nlp-ml-core' %}">nlp-core</a>
+                          </li><li><a href="{% url 'analyzer:kaggle-quora-question-pairs-problem' %}">[K] Duplicate Question</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-krw"></i>Web-Pytrader<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">simulated investment</a></li>
+
+                      <!-- <li><a href="{% url 'analyzer:kaggle-two-sigma-financial-modeling-challenge-problem' %}">[K] Two Sigma Predictions</a></li> -->
+                    </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-list"></i>Web-JStrader<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">KBL PREC</a></li>
+                    </ul>
+                    </li>
+
+                    <!-- VASP, pyQuante, Triqs, Alps on virtual env.-->
+                    <li><a><i class="fa fa-joomla"></i>Web-Materials<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">NN with DMFT</a></li>
+                      <li><a href="#">TDA with DMFT</a></li>
+                    </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Another section</h3>
+                <ul class="nav side-menu">
+                  <li><a href="#">sample</a></li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div id="top-navigation" class="top_nav navbar-custom navbar-fixed-top">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+
+              <div class="container-fluid" style="background-color: white;">
+                 <!-- Brand and toggle get grouped for better mobile display -->
+                 <div class="navbar-header page-scroll">
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                         <span class="sr-only">Toggle navigation</span>
+                         Menu <i class="fa fa-bars"></i>
+                     </button>
+
+                 </div>
+
+                 <!-- Collect the nav links, forms, and other content for toggling -->
+                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav">
+
+                        <li>
+                            <a href="{% url 'analyzer:index' %}">Analyzer</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'projectmanager:index' %}">Project Manager</a>
+                        </li>
+
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Downloads</a>
+                            <ul class="dropdown-menu" role="menu">
+                              <li><a href="#">Pytrader</a>
+                              </li>
+                              <li><a href="#">JStrader</a>
+                              </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'contact:index' %}">Contact</a>
+                        </li>
+
+
+                    <!-- profile notifier -->
+
+                       <li class="">
+                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+
+                         {% if request.user.userprofile.profile_photo|check_profile_photo_bool %}
+                            <span class="image">
+                            <img src="/media/{{ request.user.username }}/info/profile-photo_{{ request.user.username }}_{{ request.user.pk }}.jpg">
+                            </span>
+                         {% else %}
+                            <span class="image"><img src="/media/common/info/avatar.jpg" alt="Profile Image" style="width:30px;height:30px;object-fit: contain;" /></span>
+                         {% endif %}
+
+                           {{ username }}
+                           <span class=" fa fa-angle-down"></span>
+                         </a>
+                         <ul class="dropdown-menu dropdown-usermenu pull-right">
+                           <li><a href="{% url 'projectmanager:profile' %}"> Profile</a></li>
+                           <li>
+                             <a href="javascript:;">
+                               <span class="badge bg-red pull-right">50%</span>
+                               <span>Settings</span>
+                             </a>
+                           </li>
+                           <li><a href="javascript:;">Help</a></li>
+                           <li><a href="{% url 'home:logout' %}"><i class="fa fa-sign-out pull-right"></i> Log Out </a></li>
+                         </ul>
+                       </li>
+
+                       <li role="presentation" class="dropdown">
+                         <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                           <i class="fa fa-envelope-o"></i>
+                           <span class="badge bg-green">6</span>
+                         </a>
+                         <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                             {% if is_authenticated == True %}
+                             {% for message in messages %}
+                           <li>
+                             <a>
+                               <span class="image"><img src="" alt="Profile Image" /></span>
+                               <span>
+                                 <span>{{ message.fromuser }}</span>
+                                 <span class="time">{{ message.created_at }}</span>
+                               </span>
+                               <span class="message">
+                                 {{ message.title }}
+                               </span>
+                             </a>
+                           </li>
+                             {% empty %}
+                                 <a>
+                                     <span class="message">
+                                        <span>&nbsp 메시지 없어요!</span>
+                                     </span>
+                                 </a>
+                            {% endfor %}
+                           <li>
+                             <div class="text-center">
+                               <a href="{% url 'projectmanager:profile' %}">
+                                 <strong>See All Messages</strong>
+                                 <i class="fa fa-angle-right"></i>
+                               </a>
+                             </div>
+                           </li>
+                             {% endif %}
+                         </ul>
+                       </li>
+                     </ul>
+                 </div>
+                 <!-- /.navbar-collapse -->
+             </div>
+             <!-- /.container -->
+
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+        <p id="top-padding"></p>
+        <!-- page content bodycontent -->
+        <div class="right_col" role="main" style="min-height: 2305.8px;">
+          {% block bodycontent %}{% endblock %}
+        </div>
+        <!-- /page content bodycontent -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+      </ul>
+      <div class="clearfix"></div>
+      <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    {% block jsimport %}{% endblock %}
+
+    <script>
+        var test = $('p > #top-padding').css('padding-top','100px');
+        //console.log(test);
+    </script>
+  </body>
+</html>

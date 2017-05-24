@@ -1,0 +1,2 @@
+class HelloWorldError(Exception):
+    pass

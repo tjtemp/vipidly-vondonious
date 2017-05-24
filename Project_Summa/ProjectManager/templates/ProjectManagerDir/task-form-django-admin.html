@@ -1,0 +1,125 @@
+<form action="/projectmanager/" method="POST" id="controller-task-post-form">
+    {% csrf_token %}
+    <div class="modal-body">
+
+        <div>
+            <table class="table-striped table-hover controller-form-table">
+                <tr>
+                    <div class="form-group">
+                        <td>
+                        <label class="vCheckboxLabel" for="id_task_status">Task status</label>
+                        </td>
+                        <td>
+                        <input id="id_task_status" name="task_status" type="checkbox"/>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div class="form-group">
+                        <td><label class="required" for="id_task_priority">Task priority</label></td>
+                        <td><input class="form-control" id="id_task_priority" name="task_priority" type="text" value="1" required/>
+                        </td>
+                    </div>
+                </tr>
+                <div class="form-group">
+                <tr>
+
+                    <td><label for="_controller-task-related">Task related</label></td>
+                    <td>
+                    <div class="related-widget-wrapper">
+                        <select class="selectpicker" data-live-search="true" id="_controller-task-related" form="controller-task-post-form" multiple>
+                            {% for task in tasks %}
+                                <option value="{{ task.pk }}">{{ task.task_name }}, {{ task.task_project.project_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    </td>
+                </tr>
+                </div>
+
+                <tr>
+                    <td>
+                    <label class="required" for="id_task_name">Task name</label>
+                    </td>
+                    <td>
+                    <input class="form-control" id="id_task_name" maxlength="100" name="task_name" type="text"
+                           value="task_" required/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <label for="id_task_description">Task description</label>
+                    </td>
+                    <td>
+                    <input class="form-control" id="id_task_description" maxlength="300" name="task_description"
+                           type="text"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <label class="required" for="id_task_project">Task project</label>
+                    </td>
+                    <td>
+                    <div class="related-widget-wrapper">
+                        <select class="selectpicker" id="id_task_project" name="task_project" required>
+                            {% for project in projects %}
+                              <option value="{{project.pk}}">{{ project.project_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <label for="id_task_submitter">Task submitter</label>
+                    </td>
+                    <td>
+                    <input class="form-control" id="id_task_submitter" maxlength="100" name="task_submitter"
+                           type="text" value="Anonymous"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <label for="_controller-task-members">Task members</label>
+                    </td>
+                    <td>
+                    <div class="related-widget-wrapper">
+                        <select class="selectpicker" data-live-search="true" id="_controller-task-members" form="controller-task-post-form" multiple>
+                            {% for member in members %}
+                            <option value="{{ member.pk }}">{{ member.member_name }}, {{ member.member_department }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <label for="id_task_deadline_0">Task deadline</label>
+                    </td>
+                    <td>
+                    <p class="datetime">날짜: <input class="form-control" id="id_task_deadline_0"
+                                                   name="task_deadline_0" size="10" type="text"/><br/>시각: <input
+                            class="form-control" id="id_task_deadline_1" name="task_deadline_1" size="8"
+                            type="text"/></p>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-primary" data-dismiss="modal"
+        data-toggle="modal" value="Post"/>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+        data-toggle="modal" data-target="#">Close</button>
+    </div>
+</form>
+

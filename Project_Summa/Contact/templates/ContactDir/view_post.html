@@ -1,0 +1,59 @@
+{% extends 'ContactDir/filter_post.html' %}
+{% load bootstrap3 %}
+{% load static %}
+
+{% block importcss %}
+	<link href="{% static 'css/bs.callout.css' %}" rel="stylesheet">
+	<style>
+		.post-font-only{
+			font-family : 'Open Sans';
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="bs-callout bs-callout-warning post-font-only">
+	<h4> {{ post.pk }} {{ post.title }} </h4>
+	<p align="right"> written by : {{post.user.username}}</p>
+	<br/>
+	{% if post.image %}
+	<div><img src="{{post.image.url}}" style="max-width: 100%;"/></div>
+	{% endif %}
+	<br/>
+	<p>
+			{{ post.content }}
+	</p>
+	<p align="right"> {{ post.created_at }} </p>
+</div>
+
+
+{% for comment in post.comment_set.all %}
+	<div class="bs-callout bs-callout-primary post-font-only">
+		<p> {{ comment.pk }}</p>
+		<p> {{ comment.content }}</p>
+		<form method="POST" action="{% url 'contact:delete_comment' pk=comment.pk %}">
+			{% csrf_token %}
+			<button type="submit">삭제</button>
+		</p>
+        </form>
+	</div>
+{% empty %}
+	<div class="bs-callout bs-callout-primary post-font-only">
+		<p> 댓글이 없습니다. </p>
+	</div>
+
+{% endfor %}
+
+<form method="POST" action="">
+	{% csrf_token %}
+	{% bootstrap_form comment_form %}
+	<p>
+		<button type="submit" class="btn btn-primary btn-lg">
+			{% bootstrap_icon "star" %} 저장 </button>
+		<a href="{% url 'contact:list' %}" type="button" class="btn btn-primary btn-lg">
+			목록으로
+		</a>
+	</p>
+</form>
+{% endblock %}

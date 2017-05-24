@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap3 %}
+<html>
+	<head>
+
+	<title>{% block page_title %}Contact{% endblock %}</title>
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+		{% block importcss %}
+		{% endblock %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="{% static 'vendor/vintageJS-master/dist/jquery.vintage.min.js' %}"></script>
+	<script src="{% static 'vendor/vintageJS-master/vintage.presets.js' %}"></script>
+	</head>
+	<body class="container">
+		{% block body %}{% endblock %}
+		{% block bodycontent %}{% endblock %}
+		{% block jsimport %}{%endblock%}
+		<script src="{% static 'MediaFileProcessing/ImageFile/VintageImageFilter.js'%}"></script>
+	</body>
+
+</html>

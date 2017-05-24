@@ -1,0 +1,66 @@
+{
+    "name": "project_summa",
+    "children": [
+        {
+            "name": "webdevelopment",
+            "children": [
+                {
+                    "name": "project_test",
+                    "children": []
+                },
+                {
+                    "name": "project_test1",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "django project",
+            "children": [
+                {
+                    "name": "Summa_l_07",
+                    "children": []
+                },
+                {
+                    "name": "project_summa",
+                    "children": [
+                        {
+                            "name": "\ub514\ud50c\ub85c\uc774",
+                            "children": []
+                        },
+                        {
+                            "name": "\ub7ad\ucee4\uc5f0\ub3d9",
+                            "children": []
+                        },
+                        {
+                            "name": "\uba54\uc2dc\uc9d5 \ub9c8\ubb34\ub9ac",
+                            "children": []
+                        },
+                        {
+                            "name": "Image Analyzer \ub9c8\ubb34\ub9ac",
+                            "children": []
+                        },
+                        {
+                            "name": "PM page",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "spring project",
+            "children": [
+                {
+                    "name": "project_myplace",
+                    "children": [
+                        {
+                            "name": "\ud568\uc218\uc815\ub9ac",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

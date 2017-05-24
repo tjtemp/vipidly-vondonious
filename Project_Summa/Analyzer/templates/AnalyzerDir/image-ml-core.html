@@ -1,0 +1,543 @@
+{% extends 'AnalyzerDir/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block page-header %} Analyzer {% endblock %}
+{% block page-sub-header %} Analyzer Analytics {% endblock %}
+{% block cssimport %}
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css" rel="stylesheet">
+    <!-- responsive : category-workspace-table -->
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.dataTables.min.css" rel="stylesheet">
+
+    <!-- select bootstrap -->
+    <!--https://github.com/silviomoreto/bootstrap-select-->
+    <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+
+    <!-- iCheck -->
+    <link href="{% static 'vendor/iCheck/skins/flat/green.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block bodycontent %}
+    <br/><br/><br/><br/>
+
+    <!-- Controller panel -->
+    <div class="controller">
+        <!-- Analyzer Controller -->
+        <div class="col-md-6 col-sm-6 col-xs-6" style="overflow:auto;">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2> Analyzer Controller
+                        <small>Pre Process/Data Analysis/Post Process</small>
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                        Whole projects lists.
+                    </p>
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#controller-tab_content1" id="home-tab" role="tab"
+                                                                      data-toggle="tab" aria-expanded="true">
+                                Image Upload</a>
+                            </li>
+                            <li role="presentation" class=""><a href="#controller-tab_content2" role="tab" id="profile-tab"
+                                                                data-toggle="tab" aria-expanded="false">
+                                Video Upload</a>
+                            </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                        <div id="myTabContent" class="tab-content">
+                            <!-- panel 1 -->
+                            <div role="tabpanel" class="tab-pane fade active in" id="controller-tab_content1"
+                                 aria-labelledby="home-tab">
+
+                                {#                    <input type="text" id="ajax-jobsubmitter" placeholder="jobsubmitter"/>#}
+                                {#                    <input type="text" id="ajax-x" placeholder="test_x"/>#}
+                                {#                    <input type="text" id="ajax-y" placeholder="test_y"/>#}
+                                {#                    <input type="text" id="ajax-status" placeholder="status"/>#}
+                                {#                    <input type="text" id="ajax-priority" placeholder="priority"/>#}
+
+                                                    <!-- TODO: validation is not used. -->
+                                                    <div id="form-div">
+                                                        <form id="datafile-upload-form" action="" method="post" enctype="multipart/form-data"
+                                                         onsubmit="return false;">
+                                                            {% csrf_token %}
+                                                            <table>
+                                                                {{ job_form.as_table }}
+                                                                {{ datafile_form.as_table }}
+
+                                {#                                <tr>#}
+                                {#                                    <th>JobName: </th>#}
+                                {#                                    <td><input type="text" id="ajax-jobname" placeholder="jobname"/></td>#}
+                                {#                                </tr>#}
+                                {#                                <tr>#}
+                                {#                                <th>#}
+                                {#                                    Priority:#}
+                                {#                                </th>#}
+                                {#                                    <td>#}
+                                {#                                        <select class="" name="Job Priority">#}
+                                {#                                            <optgroup label="priority">#}
+                                {#                                                <option value="1">1</option>#}
+                                {#                                                <option value="2">2</option>#}
+                                {#                                                <option value="3">3</option>#}
+                                {#                                            </optgroup>#}
+                                {#                                        </select>#}
+                                {#                                    </td>#}
+                                {#                                </tr>#}
+                                {#                                <!-- Solver Select -->#}
+                                {#                                <tr>#}
+                                {#                                <th>#}
+                                {#                                    Solver:#}
+                                {#                                </th>#}
+                                {#                                    <td>#}
+                                {#                                        <select class="Image-Solver" name="image-solver-name">#}
+                                {#                                            <optgroup label="image-solver">#}
+                                {#                                                <option value="Testing">Testing</option>#}
+                                {#                                                <option value="DeepDream">DeepDream</option>#}
+                                {#                                                <option value="StyleTransfer">StyleTransfer</option>#}
+                                {#                                            </optgroup>#}
+                                {#                                        </select>#}
+                                {#                                    </td>#}
+                                {#                                </tr>#}
+                                {#                                 #}
+                                                            </table>
+                                {#                            <input type="submit" class="btn btn-primary fa fa-upload" value="submit" id="reqtest"/>#}
+                                {#                                <input type="submit" class="btn btn-primary fa fa-upload" value="submit" id="req"/>#}
+                                                                <button id="JobSubmitButton">Submit</button>
+                                                        </form>
+                                                    </div>
+
+
+                            </div>
+                            <!-- panel 2 -->
+                            <div role="tabpanel" class="tab-pane fade" id="controller-tab_content2" aria-labelledby="profile-tab">
+
+
+                                    <video width="300" height="300" controls>
+                                    <source src="{% static 'videosamples/Wishery Pogo.mp4' %}" type="video/mp4">
+                                    <source src="{% static 'videosamples/Wishery Pogo.ogg' %}" type="video/ogg">
+                                    </video>
+                                    <button id=”snap” onclick="snap()">Take screenshot</button>
+                                    <div id="video-snapshot" width="300" height="300">
+                                        <canvas width="300"></canvas>
+                                    </div>
+                                    <image id="snapshot-image"></image>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <p class="answer-console col-md-12 col-sm-12 col-xs-12" id="anwser" style="
+                    height: 200px;
+                    white-space: nowrap;
+                    overflow: scroll;
+                    background-color:black;
+                    color: seashell;">Hello!</p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analyzer Job -->
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2> Job List
+                    <small> for whole</small>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <!-- task-table-wrapper-->
+                <div class="task-table-wrapper">
+                  <table id="ctrl-job-table1" class="table table-striped table-bordered bulk_action datatable-checkbox">
+                    <thead>
+                      <tr>
+                        <th></th>
+{#                          style="display:none;"#}
+                        <th>job pk</th>
+                        <th>job priority</th>
+                        <th>job name</th>
+                        <th>job submitter</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for job in jobs %}
+                      <tr>
+                        <td></td>
+{#                          style="display:none;"#}
+                        <td class="job-pk">{{job.pk}}</td>
+                        <td class="job-priorty">{{ job.job_priority }}</td>
+                        <td class="job-name">{{ job.job_name }}</td>
+                        <td class="job-submitter">{{ job.job_submitter }} </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <div>
+                    <button class="btn btn-danger btn-sm btn-job-delete" data-toggle="modal"
+                            data-target="#job-delete-confirm-modal">DELET</button>
+                  </div>
+                </div>
+                <!-- task-table-wrapper ends -->
+            </div>
+
+            <!-- delete confirmation modal -->
+            <div class="container">
+              <!-- Task Post Modal -->
+              <div class="modal fade" id="job-delete-confirm-modal" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Job delete confirmation</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p> Are you sure to delete ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" id="delete_yes_button1" class="btn btn-default delete_yes_button"
+                              data-dismiss="modal" name="delete_job" value="1">Yes</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- ML Report -->
+    <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2> DL Analysis Report </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab"
+                                                                  data-toggle="tab" aria-expanded="true">Prediction
+                            Results</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab"
+                                                            data-toggle="tab" aria-expanded="false">Feature
+                            Engineering</a>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+                    <div id="myTabContent" class="tab-content">
+                        <!-- panel 1 -->
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                             aria-labelledby="home-tab">
+
+                            <!-- Prediction Results panel -->
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Prediction Results</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <p>Simple table with project listing with progress and editing options</p>
+                                    <!-- ml report plot canvas -->
+                                    <div id="anwser-ml-report-1" style="max-width: 100%">
+                                    </div>
+                                    <!-- ml report plot canvas end -->
+                                </div>
+                            </div>
+                            <!-- Prediction Results panel end -->
+                        </div>
+                        <!-- panel 2 -->
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                            <!-- ml report plot canvas -->
+                            <div id="anwser-ml-report" style="height: 400px;">
+                                {#<iframe id="anwser-ml-report-quiver" src="http://localhost:7000" style="width: 100%; height: 100%;" onload="alert('error!');"></iframe>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block jsimport %}
+
+    <!-- Cookie -->
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'vendor/fastclick/lib/fastclick.js' %}"></script>
+    <!-- NProgress -->
+    <script src="{% static 'vendor/nprogress/nprogress.js' %}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+
+    <!-- iCheck -->
+    <script src="{% static 'vendor/iCheck/icheck.min.js' %}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'build/js/custom.js' %}"></script>
+
+    <!-- Check Whether user intended to close the x_panel -->
+    <script>
+        $('i[class="fa fa-close"]').on('click', function (e) {
+            var r = confirm("Press a button");
+            if (r == true) {
+                x = "";
+            } else {
+                x = "You pressed Cancel!";
+            }
+        });
+    </script>
+
+    <script src="{% static 'vendor/bootstrap-select-master/dist/js/bootstrap-select.min.js' %}"></script>
+{#    <script src="http://malsup.github.com/jquery.form.js"></script>#}
+
+    <!-- Ajax request -->
+{#    <script>#}
+{#        $(document).ready(function () {#}
+{##}
+{#            function worker() {#}
+{#            }#}
+{##}
+{#            var frm = $('#datafile-upload-form');#}
+{#            var csrftoken = $.cookie('csrftoken');#}
+{#            frm.submit(function(e){#}
+{#                function csrfSafeMethod(method) {#}
+{#                    // these HTTP methods do not require CSRF protection#}
+{#                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));#}
+{#                }#}
+{##}
+{#            $.ajaxSetup({#}
+{#                beforeSend: function (xhr, settings) {#}
+{#                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {#}
+{#                        xhr.setRequestHeader("X-CSRFToken", csrftoken);#}
+{#                        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');#}
+{#                    }#}
+{#                }#}
+{#            });#}
+{##}
+{#                e.preventDefault();#}
+{#                alert("inside reqtest.");#}
+{#                var data = FormData(frm.get(0));#}
+{#                var data = FormData($(this)[0]);#}
+{#                $.ajax({#}
+{#                    type: frm.attr('method'),#}
+{#                    url: frm.attr('action'),#}
+{#                    data: data,#}
+{#                    data: frm.serialize(),#}
+{#                    cache: false,#}
+{#                    contentType: false,#}
+{#                    success: function(data){#}
+{#                        $('#anwser').append("<br/>");#}
+{#                        $('#anwser').append(data.consoles);#}
+{#                        $('#anwser-ml-report-1').append(data.plots);#}
+{#                    },#}
+{#                    complete: function(data){#}
+{#                        //setTimeout(worker, 5000);#}
+{#                        alert('Ajax Completed.');#}
+{#                    },#}
+{#                    error: function(data){#}
+{#                        alert('Error while ajax.');#}
+{#                    }#}
+{#                });#}
+{#                alert('submit return False.')#}
+{#                return false;#}
+{#            });#}
+{##}
+{#            $('#req').on('click', function (e) {#}
+{#                e.preventDefault();#}
+{#                var csrftoken = $.cookie('csrftoken');#}
+{##}
+{#                function csrfSafeMethod(method) {#}
+{#                    // these HTTP methods do not require CSRF protection#}
+{#                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));#}
+{#                }#}
+{##}
+{#                $.ajaxSetup({#}
+{#                    beforeSend: function (xhr, settings) {#}
+{#                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {#}
+{#                            xhr.setRequestHeader("X-CSRFToken", csrftoken);#}
+{#                            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');#}
+{#                        }#}
+{#                    }#}
+{#                });#}
+{#                var data = FormData(frm.get(0));#}
+{#                var x = $('#ajax-x').val();#}
+{#                var y = $('#ajax-y').val();#}
+{#                var styler_option = $('.Image-Solver').val();#}
+{#                alert("inside req.");#}
+{##}
+{#                $.ajax({#}
+{#                    url: '/analyzer/image-analysis/',#}
+{#                    dataType: 'json',#}
+{#                    method: 'post',#}
+{#                    async: true,#}
+{#                    data: frm.serialize(),#}
+{#                    data: {'x': x, 'y': y, 'styler_option': styler_option},#}
+{#                    success: function (data) {#}
+{#                        $('#anwser').append("<br/>");#}
+{#                        $('#anwser').append(data.consoles);#}
+{#                        $('#anwser-ml-report-1').append(data.plots);#}
+{#                    },#}
+{#                    complete: function (data) {#}
+{#                        //setTimeout(worker, 5000);#}
+{#                    },#}
+{#                });#}
+{#            });#}
+{#        });#}
+{##}
+{##}
+{#    </script>#}
+
+    <script>
+        var username = "{{ username }}";
+    </script>
+
+
+
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
+
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/Summa_Analyzer_tmp.js' %}"></script>
+
+
+{#    <script#}
+{#          src="https://code.jquery.com/jquery-3.2.1.min.js"#}
+{#          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="#}
+{#          crossorigin="anonymous"></script>#}
+    <!-- video snapshot을 줍니다. -->
+    <script>
+        var video = document.querySelector('video');
+        var canvas = document.querySelector('canvas');
+        var context = canvas.getContext('2d');
+        var w, h, ratio, dataURL;
+        function snap() {
+            context.fillRect(0, 0, w, h);
+            context.drawImage(video, 0, 0, w, h);
+            var fullQuality = canvas.toDataURL('image/jpeg', 1.0);
+            //window.location.href=fullQuality;
+            //document.getElementById("snapshot-image").src = fullQuality;
+            //Canvas2Image.saveAsPNG(canvas);
+            // data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...9oADAMBAAIRAxEAPwD/AD/6AP/Z"
+            var mediumQuality = canvas.toDataURL('image/jpeg', 0.5);
+            var lowQuality = canvas.toDataURL('image/jpeg', 0.1);
+
+            // png format default save
+            dataURL = canvas.toDataURL();
+            /*
+            $.ajaxSetup({
+                headers: {"X-CSRFToken": getCookie("csrftoken")}
+            });
+            */
+{#            $.ajax({#}
+{#                    type: "post",#}
+{#                    url: "",#}
+{#                    data: {#}
+{#                        'imgBase64': dataURL,#}
+{#                        'csrfmiddlewaretoken': '{{ csrf_token }}'#}
+{#                    }#}
+{#                }).done(function(){#}
+{#                    console.log('saved');#}
+{#            })#}
+
+        }
+
+        video.addEventListener('loadedmetadata', function() {
+            ratio = video.videoWidth / video.videoHeight;
+{#                w = video.videoWidth - 100;#}
+{#                h = parseInt(w / ratio, 10);#}
+            w = 300;
+            h = 300;
+            canvas.width = w;
+            canvas.height = h;
+
+        }, false);
+    </script>
+
+
+{% endblock %}
