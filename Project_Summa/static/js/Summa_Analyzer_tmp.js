@@ -86,6 +86,58 @@ $(document).ready(function() {
         });
     });
 
+    $('#Video-JobSubmitButton').on('click', function(){
+        var frm = $('#videofile-upload-form');
+        var data = new FormData(frm.get(0));
+        $.ajaxSetup({
+           beforeSend: function(xhr, settings){
+//               alert('before!');
+               var jobpriority = $('#id_job_priority').val();
+               var jobname = $('#id_job_name').val();
+               //var jobsubmitter = $('#id_fileowner').text(); // this returns all select
+               var jobsubmitter = $('#id_fileowner').find(':selected').text();
+//               alert(jobpriority + jobname + username);
+               // DataTable columns 선언해햐 한다.
+               // table.rows.add([{
+               //     "job priority": jobpriority,
+               //     "job name": jobname,
+               //     "job submitter": jobsubmitter}]).draw(true);
+               table.rows.add([[
+                   '', '', jobpriority, jobname, username
+               ],]).draw();
+           }
+        });
+
+        $.ajax({
+            url: '',
+            dataSrc: "Data",
+            dataType: 'json',
+            method: 'POST',
+            contentType: false,
+            processData: false,
+            async: true,
+            data: data,
+            // data: {'x': x, 'y': y, 'styler_option': styler_option}
+            success: function (data) {
+                $('#anwser').append("<br/>");
+                $('#anwser').append(data.consoles);
+                $('#anwser-ml-report-1').append(data.plots);
+                try { // ml-core
+                    $('#answer').append(data.model_consoles);
+                    $('#answer-ml-pre-report').append(data.plots);
+                    $('#answer-ml-model-report').append(data.model_plots);
+                    $('#answer-ml-report-stack').append(data.report_stack);
+                }catch(e){
+
+                }
+                // 기능 01
+                // 방법 2. 뷰단에서 추가된 job form 을 결과로 받아서 : 하지만 이러면 job list 달리는게 수행이 다 된다음에 나오므로 의미 없다
+            },
+            error: function(data){
+                //
+            }
+        });
+    });
 
     $('.delete_yes_button').on('click', function(){
         // DataTable 에서 job.pk 값을 받아옵니다.
