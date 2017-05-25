@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+{% load static %}
+{% load staticfiles %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .classattr_css{
+            background-color:black;
+        }
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+    </style>
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+==================================================================================<br/>
+            form.as_p<br/>
+==================================================================================<br/>
+            {{ form.as_p }}
+        <br/><br/>
+==================================================================================<br/>
+            form.as_ul<br/>
+==================================================================================<br/>
+        <ul>
+            {{ form.as_ul }}
+        </ul>
+        <br/><br/>
+==================================================================================<br/>
+            form.as_table<br/>
+==================================================================================<br/>
+        <table>
+            {{ form.as_table }}
+        </table>
+        <br/><br/>
+==================================================================================<br/>
+            form.is_multipart<br/>
+==================================================================================<br/>
+        {{ form.is_multipart }}
+        <br/><br/>
+==================================================================================<br/>
+            form.formfield_4.value<br/>
+==================================================================================<br/>
+        {{ form.formfield_4.value }}
+
+        <br/><br/>
+==================================================================================<br/>
+            form.formfield_4<br/>
+==================================================================================<br/>
+        form.formfield_4 : {{ form.formfield_4 }}
+        <br/>
+        form.isinstance.formfield_4 : {{ form.isinstance.formfield_4 }}
+        <br/>
+        form.data.formfield_4 : {{ form.data.formfield_4 }}
+        <br/>
+
+
+==================================================================================<br/>
+            modelform.as_p<br/>
+==================================================================================<br/>
+        {{ modelform.as_p}}
+
+
+
+==================================================================================<br/>
+        {# 1. BUTTON TO TRIGGER THE ACTION #}
+        <button type="button" class="btn btn-primary js-upload-photos">
+          <span class="glyphicon glyphicon-cloud-upload"></span> Upload photos
+        </button>
+
+        {# 2. FILE INPUT TO BE USED BY THE PLUG-IN #}
+        <input id="fileupload" type="file" name="file" multiple
+               style="display: none;"
+               data-url="{% url 'form_block:basic_upload' %}"
+               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+
+        {# 3. TABLE TO DISPLAY THE UPLOADED PHOTOS #}
+        <table id="gallery" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for image in images %}
+              <tr>
+                <td><a href="{{ image.file.url }}">{{ image.file.name }}</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+
+         <!-- jQuery -->
+        <script src="{% static 'jquery/jquery.js' %}"></script>
+        <script src="{% static 'jquery/jquery.min.js' %}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'jquery_file_upload/vendor/jquery.ui.widget.js' %}"></script>
+      <script src="{% static 'jquery_file_upload/jquery.iframe-transport.js' %}"></script>
+      <script src="{% static 'jquery_file_upload/jquery.fileupload.js' %}"></script>
+
+
+
+        <script>
+            $(function () {
+              /* 1. OPEN THE FILE EXPLORER WINDOW */
+              $(".js-upload-photos").click(function () {
+                $("#fileupload").click();
+              });
+
+              /* 2. INITIALIZE THE FILE UPLOAD COMPONENT */
+              $("#fileupload").fileupload({
+                dataType: 'json',
+                done: function (e, data) {  /* 3. PROCESS THE RESPONSE FROM THE SERVER */
+                  if (data.result.is_valid) {
+                    $("#gallery tbody").prepend(
+                      "<tr><td><a href='" + data.result.url + "'>" + data.result.name + "</a></td></tr>"
+                    )
+                  }
+                }
+              });
+
+            });
+        </script>
+
+
+    </body>
+</html>

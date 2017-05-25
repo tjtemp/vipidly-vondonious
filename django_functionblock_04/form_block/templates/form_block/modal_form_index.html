@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load bootstrap3 %}
+    {% load static %}
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+<body>
+
+==================================================================================<br/>
+            on bootstrap modal modelform.as_p<br/>
+==================================================================================<br/>
+
+        <div class="w3-container">
+          <h2>W3.CSS Modal</h2>
+          <p>Add the w3-card-* class to the w3-modal-content container to display the modal as a card.</p>
+          <button onclick="document.getElementById('id01').style.display='block'" class="w3-btn">Open Modal</button>
+
+          <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-card-8">
+              <header class="w3-container w3-teal">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-closebtn">&times;</span>
+                <h2>Modal Header</h2>
+              </header>
+              <div class="w3-container">
+                  <form action="{% url 'form_block:modal_form_index' %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <table>
+                      {{ form.as_table }}
+                    </table>
+                    <p>Some text..</p>
+                    <p>Some text..</p>
+                  <input type="submit" class="btn btn-primary" value="submit"/>
+                  </form>
+              </div>
+              <footer class="w3-container w3-teal">
+                <p>Modal Footer</p>
+              </footer>
+            </div>
+          </div>
+        </div>
+    {% if model %}
+        <p>{{ model.model_field1}}</p>
+    {% endif %}
+
+
+
+         <!-- jQuery -->
+        <script src="{% static 'jquery/jquery.js' %}"></script>
+        <script src="{% static 'jquery/jquery.min.js' %}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+
+
+    <script>
+    $(function() {
+      $( ".datepicker" ).datepicker({
+        dateFormat: 'yy/mm/dd'
+      });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% set name="hello" %}
+    <div> name is {{ name }}</div>
+    {% set foo="thisissample" %}
+    foo is {{ foo }}
+    {% with bar=foo|slice'6:9' %}
+        bar is {{ bar }}
+    {% endwith %}
+
+<!--forloop.counter0 in list object-->
+
+</body>
+
+</html>
