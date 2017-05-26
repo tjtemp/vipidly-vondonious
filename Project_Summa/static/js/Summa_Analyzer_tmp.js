@@ -36,6 +36,7 @@ $(document).ready(function() {
     $('#JobSubmitButton').on('click', function(){
         var frm = $('#datafile-upload-form');
         var data = new FormData(frm.get(0));
+        data.append("username", username);
         $.ajaxSetup({
            beforeSend: function(xhr, settings){
 //               alert('before!');
@@ -88,7 +89,33 @@ $(document).ready(function() {
 
     $('#Video-JobSubmitButton').on('click', function(){
         var frm = $('#videofile-upload-form');
+        var ajax_differer = 'video-snapshot';
+        // Job data
         var data = new FormData(frm.get(0));
+        // Snapshot images data
+        data.append('ajax_differer', ajax_differer);
+        data.append('imgBase64', images);
+        //console.log(images);
+
+        function getCookie(name) {
+         var cookieValue = null;
+         if (document.cookie && document.cookie != '') {
+             var cookies = document.cookie.split(';');
+             for (var i = 0; i < cookies.length; i++) {
+                 var cookie = jQuery.trim(cookies[i]);
+                 // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                 break;
+             }
+         }
+         }
+         return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+        //console.log(csrftoken);
+        data.append('csrfmiddlewaretoken', csrftoken);
+
         $.ajaxSetup({
            beforeSend: function(xhr, settings){
 //               alert('before!');
@@ -107,6 +134,12 @@ $(document).ready(function() {
                ],]).draw();
            }
         });
+
+            //
+            // $.ajaxSetup({
+            //     headers: {"X-CSRFToken": cookie("csrftoken")}
+            // });
+
 
         $.ajax({
             url: '',
@@ -130,9 +163,19 @@ $(document).ready(function() {
                 }catch(e){
 
                 }
+                console.log(data)
                 // 기능 01
                 // 방법 2. 뷰단에서 추가된 job form 을 결과로 받아서 : 하지만 이러면 job list 달리는게 수행이 다 된다음에 나오므로 의미 없다
             },
+            complete: function (e, data) {  /* 3. PROCESS THE RESPONSE FROM THE SERVER */
+                console.log(data);
+                alert("completed");
+                  if (data.is_valid) {
+                    $("#gallery tbody").prepend(
+                      "<tr><td><a href='" + data.url + "'>" + data.name + "</a></td></tr>"
+                    )
+                  }
+                },
             error: function(data){
                 //
             }

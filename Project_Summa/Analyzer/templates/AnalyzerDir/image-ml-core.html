@@ -140,7 +140,6 @@
                                         {% csrf_token %}
                                         <table>
                                             {{ job_form.as_table }}
-                                            {{ datafile_form.as_table }}
                                         </table>
                                     <button id="Video-JobSubmitButton">Submit</button>
                                 </form>
@@ -153,7 +152,22 @@
                                     <div id="video-snapshot" width="300" height="300">
                                         <canvas width="300" height="300"></canvas>
                                     </div>
-                                    <image id="snapshot-image"></image>
+{#                                    <image id="snapshot-image"></image>#}
+                                    {# 3. TABLE TO DISPLAY THE UPLOADED PHOTOS #}
+                                    <table id="gallery" class="table table-bordered">
+                                      <thead>
+                                        <tr>
+                                          <th>Image</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {% for image in images %}
+                                          <tr>
+                                            <td><a href="{{ image.file.url }}">{{ image.file.name }}</a></td>
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                    </table>
                             </div>
                         </div>
                     </div>
@@ -489,7 +503,6 @@
     <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
 
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
-    <script src="{% static 'js/Summa_Analyzer_tmp.js' %}"></script>
 
 
 {#    <script#}
@@ -502,6 +515,8 @@
         var canvas = document.querySelector('canvas');
         var context = canvas.getContext('2d');
         var w = 300, h = 300, ratio, dataURL;
+        var fullQuality, mediumQuality, lowQuality;
+        var images = [];
         // TODO: not working now
         video.addEventListener('onloadedmetadata', function() {
             ratio = video.videoWidth / video.videoHeight;
@@ -514,42 +529,24 @@
             canvas.height = h;
 
         }, false);
+        // Append Images with snap shot
         function snap() {
             context.fillRect(0, 0, w, h);
             context.drawImage(video, 0, 0, w, h);
-            var fullQuality = canvas.toDataURL('image/jpeg', 1.0);
+            fullQuality = canvas.toDataURL('image/jpeg', 1.0);
             //window.location.href=fullQuality;
             //document.getElementById("snapshot-image").src = fullQuality;
             //Canvas2Image.saveAsPNG(canvas);
             // data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...9oADAMBAAIRAxEAPwD/AD/6AP/Z"
-            var mediumQuality = canvas.toDataURL('image/jpeg', 0.5);
-            var lowQuality = canvas.toDataURL('image/jpeg', 0.1);
+            mediumQuality = canvas.toDataURL('image/jpeg', 0.5);
+            lowQuality = canvas.toDataURL('image/jpeg', 0.1);
 
             // png format default save
             dataURL = canvas.toDataURL();
-
-
-            var ajax_differer = 'video-snapshot';
-            $.ajaxSetup({
-                headers: {"X-CSRFToken": getCookie("csrftoken")}
-            });
-
-            $.ajax({
-                    type: "post",
-                    url: "",
-                    data: {
-                        'ajax_differer': ajax_differer,
-                        'imgBase64': dataURL,
-                        'csrfmiddlewaretoken': '{{ csrf_token }}',
-                    }
-                }).done(function(){
-                    console.log('saved');
-            })
-
+            images.push(mediumQuality);
         }
-
-
     </script>
 
+    <script src="{% static 'js/Summa_Analyzer_tmp.js' %}"></script>
 
 {% endblock %}

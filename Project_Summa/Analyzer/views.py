@@ -1,8 +1,11 @@
 import json
+
 import os
 import logging
 
 from django.conf import settings
+
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -10,6 +13,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import HttpResponse
+
+from django.http import JsonResponse
 
 # from .models import Video
 # from .models import Image
@@ -67,6 +72,7 @@ def ml_core(request):
     datafile_form = datafile_upload_model_form()
 
 
+    print('## request POST keys : ', request.POST.keys())
     if request.method == 'POST':
         print('## request method POST ')
         job_form = JobForm(request.POST, request.FILES)
@@ -191,6 +197,10 @@ def kocpp(request):
 # image-core
 
 
+import base64
+def get_base64_image(data):
+	return base64.b64decode(data)
+
 
 def image_ml_core(request):
     # logger.info('image_ml_core is called.')
@@ -218,6 +228,7 @@ def image_ml_core(request):
         print('## datafile_form error: ', datafile_form.errors)
         print('## datafile_form validation : ', datafile_form.is_valid())
 
+        # Job Form
         # Add New Job on job list
         if job_form.is_valid():
             job = job_form.save(commit=False)
@@ -237,8 +248,41 @@ def image_ml_core(request):
                             job = Job.objects.get(pk=ids)
                             job.delete()
                         return HttpResponse('done')
+        # Data Form
+        if request.POST.get('ajax_differer') == 'video-snapshot':
+            print('## request POST get video-snapshot')
+            images = request.POST.get('imgBase64')
+            images = images.split(',') # images comes with ','.join(lists)
+            # print(len(images))
+            # print(type(images[0]))
+            # print(images[0])
+            # print(images[2])
+            # print(len(images[0]))
+            for idx, image in enumerate(images):
+                image_name = image.split(':base,')[0]
+                print(image_name)
+                image = get_base64_image(image.split(':base,')[-1])
+                print(image[:30])
+                # Save snapshot data to Datafile
+                # This data comes with list so simple request.FILES cannot be used.
+                # TODO:
+                _filedata = {
+                    'filepath' : SimpleUploadedFile(
+                        image_name, image
+                    )
+                }
+                datafile_form = datafile_upload_model_form(request.POST, _filedata)
+                datafile_form.fileowner = request.user.username
+                print('###########:', request.user.username)
+                if datafile_form.is_valid():
+                    image = datafile_form.save()
+                    data = {'is_valid': True, 'name': image.filepath.name, 'url': image.filepath.url}
+                else:
+                    data = {'is_valid': False}
+                return JsonResponse(data)
 
-        if datafile_form.is_valid(): # TODO: adding validation on ajax request is not implemented
+        elif datafile_form.is_valid(): # TODO: adding validation on ajax request is not implemented
+            print('## datafile form is valid')
             BASE = os.getcwd()
             fileowner_pk = request.POST.get('fileowner')
             # no file upload

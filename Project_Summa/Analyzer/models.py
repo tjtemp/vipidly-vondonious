@@ -37,7 +37,7 @@ class Job(models.Model):
                                   )
 
     class Meta:
-        ordering = ('-pk',)
+        ordering = ('pk',)
 
     def __str__(self):
         return '{}-{} : {}'.format(self.job_name, self.job_submitter, self.job_status)
