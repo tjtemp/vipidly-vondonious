@@ -95,7 +95,6 @@ $(document).ready(function() {
         // Snapshot images data
         data.append('ajax_differer', ajax_differer);
         data.append('imgBase64', images);
-        //console.log(images);
 
         function getCookie(name) {
          var cookieValue = null;
@@ -163,7 +162,7 @@ $(document).ready(function() {
                 }catch(e){
 
                 }
-                console.log(data)
+                console.log(data);
                 // 기능 01
                 // 방법 2. 뷰단에서 추가된 job form 을 결과로 받아서 : 하지만 이러면 job list 달리는게 수행이 다 된다음에 나오므로 의미 없다
             },

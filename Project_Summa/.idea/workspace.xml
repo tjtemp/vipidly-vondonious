@@ -23,66 +23,39 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="image-ml-core.html" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/image-ml-core.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="756">
-                    <caret line="504" column="29" lean-forward="true" selection-start-line="504" selection-start-column="29" selection-end-line="504" selection-end-column="29" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="288">
-                    <caret line="268" column="29" lean-forward="true" selection-start-line="268" selection-start-column="29" selection-end-line="268" selection-end-column="29" />
-                    <folding>
-                      <element signature="e#0#11#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ml-core.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html">
+      <file leaf-file-name="image-ml-core.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/image-ml-core.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="467" column="52" lean-forward="true" selection-start-line="467" selection-start-column="52" selection-end-line="467" selection-end-column="52" />
+            <state relative-caret-position="9738">
+              <caret line="541" column="0" lean-forward="false" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Summa_Analyzer_tmp.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ml-core.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8946">
+              <caret line="497" column="27" lean-forward="false" selection-start-line="497" selection-start-column="27" selection-end-line="497" selection-end-column="27" />
+              <folding>
+                <element signature="e#1290#2024#0#HTML" expanded="false" />
+                <element signature="e#2053#2215#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Summa_Analyzer_tmp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/Summa_Analyzer_tmp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="159" column="53" lean-forward="true" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="53" />
+            <state relative-caret-position="3402">
+              <caret line="189" column="35" lean-forward="false" selection-start-line="189" selection-start-column="35" selection-end-line="189" selection-end-column="35" />
               <folding>
-                <marker date="1495771468182" expanded="true" signature="9627:9640" ph="..." />
+                <marker date="1495780046681" expanded="true" signature="9597:9610" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,8 +64,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="112" column="2" lean-forward="false" selection-start-line="112" selection-start-column="2" selection-end-line="112" selection-end-column="2" />
+            <state relative-caret-position="1872">
+              <caret line="110" column="51" lean-forward="false" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -103,7 +76,7 @@
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analyzer/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
+            <state relative-caret-position="324">
               <caret line="25" column="26" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="25" selection-end-column="26" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
@@ -115,9 +88,21 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project_Summa/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
+            <state relative-caret-position="4032">
               <caret line="225" column="8" lean-forward="false" selection-start-line="225" selection-start-column="2" selection-end-line="225" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="289" column="26" lean-forward="false" selection-start-line="289" selection-start-column="26" selection-end-line="289" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>on click</find>
-      <find>image-ml-core</find>
       <find>ajax_differer</find>
       <find>ajax_differe</find>
       <find>video</find>
@@ -159,7 +142,6 @@
       <find>JobSubmi</find>
       <find>getCo</find>
       <find>console</find>
-      <find>image</find>
       <find>DatafileForm</find>
       <find>_content</find>
       <find>Job</find>
@@ -167,6 +149,9 @@
       <find>datafile_upload</find>
       <find>get_user_uploadfile_folder</find>
       <find>fil</find>
+      <find>image</find>
+      <find>images</find>
+      <find>image_ml_core</find>
     </findStrings>
     <replaceStrings>
       <replace>src=&quot;{% static 'contact/</replace>
@@ -214,7 +199,6 @@
         <option value="$PROJECT_DIR$/SummaMLEngine/task_test.py" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/user-profile.html" />
         <option value="$PROJECT_DIR$/Analyzer/forms.py" />
-        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html" />
         <option value="$PROJECT_DIR$/Home/views.py" />
         <option value="$PROJECT_DIR$/Project_Summa/sample_middlewares.py" />
         <option value="$PROJECT_DIR$/ProjectManager/forms.py" />
@@ -228,8 +212,9 @@
         <option value="$PROJECT_DIR$/Contact/views.py" />
         <option value="$PROJECT_DIR$/testapp/templates/index.html" />
         <option value="$PROJECT_DIR$/SummaMLEngine/summa_ml_core/image_ml_core/applications/neural_styler.py" />
-        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/image-ml-core.html" />
         <option value="$PROJECT_DIR$/Analyzer/models.py" />
+        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/image-ml-core.html" />
+        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html" />
         <option value="$PROJECT_DIR$/static/js/Summa_Analyzer_tmp.js" />
         <option value="$PROJECT_DIR$/Analyzer/views.py" />
       </list>
@@ -242,10 +227,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1131" />
-    <option name="y" value="52" />
-    <option name="width" value="935" />
-    <option name="height" value="1028" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -325,8 +310,18 @@
               <option name="myItemId" value="None" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="files" />
+              <option name="myItemId" value="Project_Summa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project_Summa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Analyzer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,6 +336,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Analyzer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnalyzerDir" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -668,17 +671,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1131" y="52" width="935" height="1028" extended-state="4" />
-    <editor active="true" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3318335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21503593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30416667" sideWeight="0.5511332" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3375" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24746907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31223175" sideWeight="0.44886678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31145832" sideWeight="0.44886678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1039,7 +1042,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project_Summa/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
+        <state relative-caret-position="4032">
           <caret line="225" column="8" lean-forward="false" selection-start-line="225" selection-start-column="2" selection-end-line="225" selection-end-column="8" />
           <folding />
         </state>
@@ -1047,7 +1050,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
+        <state relative-caret-position="324">
           <caret line="25" column="26" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="25" selection-end-column="26" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -1055,18 +1058,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/None/files/None">
+    <entry file="file://$PROJECT_DIR$/media/None/files/None" />
+    <entry file="file://$PROJECT_DIR$/static/js/Summa_Analyzer_tmp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="3402">
+          <caret line="189" column="35" lean-forward="false" selection-start-line="189" selection-start-column="35" selection-end-line="189" selection-end-column="35" />
+          <folding>
+            <marker date="1495780046681" expanded="true" signature="9597:9610" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8946">
+          <caret line="497" column="27" lean-forward="false" selection-start-line="497" selection-start-column="27" selection-end-line="497" selection-end-column="27" />
+          <folding>
+            <element signature="e#1290#2024#0#HTML" expanded="false" />
+            <element signature="e#2053#2215#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/image-ml-core.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9738">
+          <caret line="541" column="0" lean-forward="false" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="112" column="2" lean-forward="false" selection-start-line="112" selection-start-column="2" selection-end-line="112" selection-end-column="2" />
+        <state relative-caret-position="1872">
+          <caret line="110" column="51" lean-forward="false" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -1075,36 +1100,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="268" column="29" lean-forward="true" selection-start-line="268" selection-start-column="29" selection-end-line="268" selection-end-column="29" />
+        <state relative-caret-position="379">
+          <caret line="289" column="26" lean-forward="false" selection-start-line="289" selection-start-column="26" selection-end-line="289" selection-end-column="26" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="467" column="52" lean-forward="true" selection-start-line="467" selection-start-column="52" selection-end-line="467" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/image-ml-core.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="504" column="29" lean-forward="true" selection-start-line="504" selection-start-column="29" selection-end-line="504" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/Summa_Analyzer_tmp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="159" column="53" lean-forward="true" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="53" />
-          <folding>
-            <marker date="1495771468182" expanded="true" signature="9627:9640" ph="..." />
           </folding>
         </state>
       </provider>

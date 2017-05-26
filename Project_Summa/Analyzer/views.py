@@ -1,5 +1,5 @@
 import json
-
+import glob
 import os
 import logging
 
@@ -258,28 +258,53 @@ def image_ml_core(request):
             # print(images[0])
             # print(images[2])
             # print(len(images[0]))
+            counter = len(images) // 2
             for idx, image in enumerate(images):
-                image_name = image.split(':base,')[0]
-                print(image_name)
-                image = get_base64_image(image.split(':base,')[-1])
-                print(image[:30])
-                # Save snapshot data to Datafile
-                # This data comes with list so simple request.FILES cannot be used.
-                # TODO:
-                _filedata = {
-                    'filepath' : SimpleUploadedFile(
-                        image_name, image
-                    )
-                }
-                datafile_form = datafile_upload_model_form(request.POST, _filedata)
-                datafile_form.fileowner = request.user.username
-                print('###########:', request.user.username)
-                if datafile_form.is_valid():
-                    image = datafile_form.save()
-                    data = {'is_valid': True, 'name': image.filepath.name, 'url': image.filepath.url}
-                else:
-                    data = {'is_valid': False}
-                return JsonResponse(data)
+                if idx % 2 == 0:
+                    image_name = image.split(':base,')[0]
+                    print(image_name)
+                    image = get_base64_image(image.split(':base,')[-1])
+                    print(image[:30])
+                    # Save snapshot data to Datafile
+                    # This data comes with list so simple request.FILES cannot be used.
+                    # TODO:'snapeshot-'+str(idx//2)+'.jpeg'
+                    _filedata = {
+                        'filepath' : SimpleUploadedFile(
+                            image_name, image
+                        )
+                    }
+                    datafile_form = datafile_upload_model_form(request.POST, _filedata)
+                    datafile_form.fileowner = request.user.username
+
+                    styler_option = request.POST.get('job_solver')
+                    print('styler option : ', styler_option)
+                    # print('in form : ', x+y)
+                    # print(request.is_ajax())
+                    print("## request.is_jax() : ", request.is_ajax())
+                    FILE_PATH = os.getcwd()
+                    snapshot_files = glob.glob(FILE_PATH + settings.MEDIA_URL + 'None/*')
+
+                    if request.is_ajax():
+                        print('## Ajax call')
+                        print('## Celery Worker Status: ')
+                        print(get_celery_worker_status())
+                        result = '', ''
+                        for file in snapshot_files:
+                            resultemp = styler_function(file, styler_option)
+                            result[0] += resultemp[0]
+                            result[1] += resultemp[1]
+                        print('## Styler is Done')
+                        return HttpResponse(json.dumps({
+                            'consoles': result[0],
+                            'plots': result[1]
+                        }))
+
+                    if datafile_form.is_valid():
+                        image = datafile_form.save()
+                        data = {'is_valid': True, 'name': image.filepath.name, 'url': image.filepath.url}
+                    else:
+                        data = {'is_valid': False}
+                    return JsonResponse(data)
 
         elif datafile_form.is_valid(): # TODO: adding validation on ajax request is not implemented
             print('## datafile form is valid')

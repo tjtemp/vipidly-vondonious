@@ -497,8 +497,6 @@
         var username = "{{ username }}";
     </script>
 
-
-
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
 
@@ -530,6 +528,7 @@
 
         }, false);
         // Append Images with snap shot
+        var counter = 0;
         function snap() {
             context.fillRect(0, 0, w, h);
             context.drawImage(video, 0, 0, w, h);
@@ -538,7 +537,7 @@
             //document.getElementById("snapshot-image").src = fullQuality;
             //Canvas2Image.saveAsPNG(canvas);
             // data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...9oADAMBAAIRAxEAPwD/AD/6AP/Z"
-            mediumQuality = canvas.toDataURL('image/jpeg', 0.5);
+            mediumQuality = canvas.toDataURL('image/jpeg', 0.5);//.replace('data:image/jpeg', 'snapshot-' + counter.toString())
             lowQuality = canvas.toDataURL('image/jpeg', 0.1);
 
             // png format default save
@@ -548,5 +547,4 @@
     </script>
 
     <script src="{% static 'js/Summa_Analyzer_tmp.js' %}"></script>
-
 {% endblock %}
