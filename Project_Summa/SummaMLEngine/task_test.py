@@ -126,24 +126,16 @@ def plot_raw_test(x, y):
 
 
 @app.task
-def plot_feature_pair_comparision_test(filepath=None):
+def plot_feature_pair_comparision_test(x, y):
     aws = ''
     fig = ''
 
 
     ## feature_pair_comparision
     # split 80/20 train-test
-
-    if filepath == None:
-        dh1 = data_holder()
-        dh1.read_data()
-        vt1 = visualization_toolbox(dh1, 'brain_size.csv')
-    else:
-        dh1 = data_holder()
-        dh1.read_data(filepath)
-        vt1 = visualization_toolbox(dh1, filepath.split('/')[-1])
-
-
+    dh1 = data_holder()
+    dh1.read_data()
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
     cal_housing = fetch_california_housing()
     X_train, X_test, y_train, y_test = train_test_split(cal_housing.data,
                                                         cal_housing.target,
@@ -222,7 +214,7 @@ def plot_model_cv_score_compare_plot1d_test():
 
 
 @app.task
-def plot_feature_all_test(filepath=None):
+def plot_feature_all_test(x, y):
     """
     plot feature engineering
     :param x:
@@ -261,8 +253,6 @@ def plot_feature_all_test(filepath=None):
 
               <p>This represents ... </p>
           """
-    x=1
-    y=1
     result = plot_raw_test(x, y)
     aws += result[0]
     fig += result[1]
@@ -275,7 +265,7 @@ def plot_feature_all_test(filepath=None):
     ## feature_pair_comparision
     fig += "<h3 class='report-title'>pair partial dependence plot</h3>" \
            "<p>This represents ... </p>"
-    result = plot_feature_pair_comparision_test(filepath)
+    result = plot_feature_pair_comparision_test(x, y)
     aws += result[0]
     fig += result[1]
     fig3d = result[2]
@@ -285,7 +275,7 @@ def plot_feature_all_test(filepath=None):
 
     fig += "<h3 class='report-title'>covariance matrix plot</h3>" \
            "<p>This represents ... </p>"
-    result = plot_feature_covariance_matrix_plot_test(filepath)
+    result = plot_feature_covariance_matrix_plot_test(x, y)
     aws += result[0]
     fig += result[1]
 
@@ -334,6 +324,8 @@ def plot_model_all_test():
     "</div>" \
     "</div>" \
     "<!-- Prediction Results panel end -->"
+
+
 
     result = plot_model_cv_score_compare_plot1d_test()
 
