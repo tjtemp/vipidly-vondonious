@@ -38,7 +38,7 @@ class data_holder:
             )
 
 
-    def read_data(self):
+    def read_data(self, filepath=None):
         """
         read data
         currently implemented only for csv file
@@ -52,38 +52,42 @@ class data_holder:
             # caution with django framework : "." directory is in manage.py file
             path = os.path.abspath(".")
 
-            path += "/SummaMLEngine/summa_ml_core/ml_core"
-            path += "/raw_data/"
+            if filepath == None:
+                path += "/SummaMLEngine/summa_ml_core/ml_core"
+                path += "/raw_data/"
+                datatable_names = glob.glob(path + "*.csv")
 
-            datatable_names = glob.glob(path + "*.csv")
+                for table_name in datatable_names:
+                    # table name registration
+                    table_name = os.path.basename(table_name)
+                    self.datatable_names.append(table_name)
+
+                    # table data registration
+                    df = pd.read_csv("./SummaMLEngine/summa_ml_core/ml_core/raw_data/" + table_name, sep=',',
+                                     na_values=';')
+                    self.datatables.append(df)
+
+                # json data input
+                # excluding trailing data \n for nested json structure
+                datatable_names = glob.glob(path + "*.json")
+
+                for table_name in datatable_names:
+                    # table name registration
+                    table_name = os.path.basename(table_name)
+                    self.datatable_names.append(table_name)
+
+                    # table data registration
+                    with open("./SummaMLEngine/summa_ml_core/ml_core/raw_data/" + table_name, 'rb') as f:
+                        data = f.readlines()
+                    data = map(lambda x: x.decode("utf-8").strip(), data)
+                    data_str = "[" + ",".join(data) + "]"
+                    df_json = pd.read_json(data_str)
+                    self.datatables.append(df_json)
+
+            else:
+                datatable_names = glob.glob(filepath)
 
 
-            for table_name in datatable_names:
-                # table name registration
-                table_name = os.path.basename(table_name)
-                self.datatable_names.append(table_name)
-
-                # table data registration
-                df = pd.read_csv("./SummaMLEngine/summa_ml_core/ml_core/raw_data/" + table_name, sep=',', na_values=';')
-                self.datatables.append(df)
-
-
-            # json data input
-            # excluding trailing data \n for nested json structure
-            datatable_names = glob.glob(path + "*.json")
-
-            for table_name in datatable_names:
-                # table name registration
-                table_name = os.path.basename(table_name)
-                self.datatable_names.append(table_name)
-
-                # table data registration
-                with open("./SummaMLEngine/summa_ml_core/ml_core/raw_data/" + table_name, 'rb') as f:
-                    data = f.readlines()
-                data = map(lambda x : x.decode("utf-8").strip(), data)
-                data_str = "[" + ",".join(data) + "]"
-                df_json = pd.read_json(data_str)
-                self.datatables.append(df_json)
         else:
             print("user specified folder/file")
 

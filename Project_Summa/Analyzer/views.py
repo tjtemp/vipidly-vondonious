@@ -61,72 +61,76 @@ def index(request):
 
 #from Project_Summa.sample_exceptions import HelloWorldError
 def ml_core(request):
-    print('ml_core(request) called.')
+    print('## ml_core(request) called.')
+    print('## request POST keys : ', request.POST.keys())
+
 #    raise HelloWorldError('World! Error!')
 
     is_authenticated = request.user.is_authenticated()
     username = request.user.username
-    print("## username :", username)
     jobs = Job.objects.all()
     job_form = JobForm()
     datafile_form = datafile_upload_model_form()
+    solver_option = request.POST.get('job_solver')
 
-
-    print('## request POST keys : ', request.POST.keys())
+    print("## username :", username)
     if request.method == 'POST':
         print('## request method POST ')
         job_form = JobForm(request.POST, request.FILES)
-        datafile_form = image_upload_model_form(request.POST, request.FILES)
+        datafile_form = datafile_upload_model_form(request.POST, request.FILES)
         print('## job_form error: ', job_form.errors)
         print('## job_form validation : ', job_form.is_valid())
         print('## datafile_form error: ', datafile_form.errors)
+        print('## datafile_form : ', datafile_form.fields)
         print('## datafile_form validation : ', datafile_form.is_valid())
 
-        # Add New Job on job list
-        if job_form.is_valid():
-            job = job_form.save(commit=False)
-            job.job_submitter = User.objects.get(username__exact=username)
-            print('#################:', username)
-            print(job)
-            job.save()
+        print('## solver option : ', solver_option)
+        if request.POST.get('job_solver') == 'mlsolver':
+            # Add New Job on job list
+            if job_form.is_valid():
+                job = job_form.save(commit=False)
+                job.job_submitter = User.objects.get(username__exact=username)
+                print('## job : ', job)
+                job.save()
 
-        # Delete Job on job list
-        print(request.POST.keys())
-        if 'delete_job' in request.POST.keys():
-            if request.POST['delete_job'] == '1':
+            # Delete Job on job list
+            if 'delete_job' in request.POST.keys():
+                if request.POST['delete_job'] == '1':
+                    if request.is_ajax():
+                        print(request.POST.get('ajax_differer'))
+                        if request.POST['ajax_differer'] == '1':
+                            delete_pks = request.POST.getlist('job_pks[]')
+                            for ids in delete_pks:
+                                print('## ', ids, ' deleted.')
+                                job = Job.objects.get(pk=ids)
+                                job.delete()
+                            return HttpResponse('done')
+
+            # Datafile
+            if datafile_form.is_valid():
+                print('## datafile form is valid')
+                datafile = datafile_form.save(commit=False)
+                datafile.save()
+
+            if datafile_form.is_valid(): # TODO: adding validation on ajax request is not implemented
+                BASE = os.getcwd()
+                # no file upload
+                if len(request.FILES) != 0:
+                    datafile_form.save()
+                    #fileowner_username = User.objects.get(pk=int(fileowner_pk)).username
+                    fileowner_username = request.user.username
+                    #ext = request.FILES['filepath'].name.split('.')[-1]
+                    MEDIA_URL = getattr(settings, 'MEDIA_URL', None) # or settings.MEDIA_URL
+                    filepath = BASE + MEDIA_URL + "%s/files/%s" % (fileowner_username, datafile_form['filename'].value())# ext
+                    print("## request.FILES : ", request.FILES)
+                    print("## file path : ", filepath)
+
                 if request.is_ajax():
-                    print(request.POST.get('ajax_differer'))
-                    if request.POST['ajax_differer'] == '1':
-                        delete_pks = request.POST.getlist('job_pks[]')
-                        for ids in delete_pks:
-                            print('## ', ids, ' deleted.')
-                            job = Job.objects.get(pk=ids)
-                            job.delete()
-                        return HttpResponse('done')
-
-        if datafile_form.is_valid():
-            datafile = datafile_form.save(commit=False)
-            datafile.save()
-
-        if job_form.is_valid():
-            print('## job form is valid')
-            x = int(request.POST.get('x', False))
-            y = int(request.POST.get('y', False))
-            status = request.POST.get('ajax-')
-            print('## in form : ', x+y)
-            if request.is_ajax():
-                print('## ajax call!')
-                print(x, y)
-                if request.POST.get('job_solver') == 'mlsolver':
                     print('request POST get job_solver')
-                    #result = plot_ols.delay(x, y)
-                    #print(type(result)) # Asyc.celery.result
-                    #result = plot_raw_test(x, y)
-                    result = plot_feature_all_test(x, y)
-                    model_result = plot_model_all_test()
-                    report_result = plot_report_all_test()
-                    #print(result[2])
-                    print(isinstance(result, list), len(result), len(model_result))
+                    result = plot_feature_all_test(filepath)
+                    #model_result = plot_model_all_test(filepath)
+                    #report_result = plot_report_all_test(filepath)
+                    #print(isinstance(result, list), len(result), len(model_result))
                     if isinstance(result, list):
                         return HttpResponse(json.dumps({
                             "consoles": result[0],
@@ -139,19 +143,53 @@ def ml_core(request):
                             "model_plots": model_result[1],
                             "report_stack": report_result[0],
                         }))
-                    else:
-                        #TODO: currently not using
-                        return HttpResponse(json.dumps({
-                                "consoles": result.get()[0],
-                                "plots": result.get()[1],
-                                "_3dplots": result.get()[2],
-                                "xlabel": result[3],
-                                "ylabel": result[4],
-                                "zlabel": result[5],
-                                "model_consoles": model_result[0],
-                                "model_plots": model_result[1],
-                        })
-                        )
+
+
+        #
+        # if job_form.is_valid():
+        #     print('## job form is valid')
+        #     x = int(request.POST.get('x', False))
+        #     y = int(request.POST.get('y', False))
+        #     status = request.POST.get('ajax-')
+        #     print('## in form : ', x+y)
+        #     if request.is_ajax():
+        #         print('## ajax call!')
+        #         print(x, y)
+        #         if request.POST.get('job_solver') == 'mlsolver':
+        #             print('request POST get job_solver')
+        #             #result = plot_ols.delay(x, y)
+        #             #print(type(result)) # Asyc.celery.result
+        #             #result = plot_raw_test(x, y)
+        #             result = plot_feature_all_test(x, y)
+        #             model_result = plot_model_all_test()
+        #             report_result = plot_report_all_test()
+        #             #print(result[2])
+        #             print(isinstance(result, list), len(result), len(model_result))
+        #             if isinstance(result, list):
+        #                 return HttpResponse(json.dumps({
+        #                     "consoles": result[0],
+        #                     "plots": result[1],
+        #                     "_3dplots": result[2],
+        #                     "xlabel": result[3],
+        #                     "ylabel": result[4],
+        #                     "zlabel": result[5],
+        #                     "model_consoles": model_result[0],
+        #                     "model_plots": model_result[1],
+        #                     "report_stack": report_result[0],
+        #                 }))
+        #             else:
+        #                 #TODO: currently not using
+        #                 return HttpResponse(json.dumps({
+        #                         "consoles": result.get()[0],
+        #                         "plots": result.get()[1],
+        #                         "_3dplots": result.get()[2],
+        #                         "xlabel": result[3],
+        #                         "ylabel": result[4],
+        #                         "zlabel": result[5],
+        #                         "model_consoles": model_result[0],
+        #                         "model_plots": model_result[1],
+        #                 })
+        #                 )
     ctx={
         "jobs": jobs,
         "job_form": job_form,
@@ -253,6 +291,7 @@ def image_ml_core(request):
             print('## request POST get video-snapshot')
             images = request.POST.get('imgBase64')
             images = images.split(',') # images comes with ','.join(lists)
+            snapshot_files = None
             # print(len(images))
             # print(type(images[0]))
             # print(images[0])
@@ -284,27 +323,29 @@ def image_ml_core(request):
                     FILE_PATH = os.getcwd()
                     snapshot_files = glob.glob(FILE_PATH + settings.MEDIA_URL + 'None/*')
 
-                    if request.is_ajax():
-                        print('## Ajax call')
-                        print('## Celery Worker Status: ')
-                        print(get_celery_worker_status())
-                        result = '', ''
-                        for file in snapshot_files:
-                            resultemp = styler_function(file, styler_option)
-                            result[0] += resultemp[0]
-                            result[1] += resultemp[1]
-                        print('## Styler is Done')
-                        return HttpResponse(json.dumps({
-                            'consoles': result[0],
-                            'plots': result[1]
-                        }))
-
                     if datafile_form.is_valid():
                         image = datafile_form.save()
                         data = {'is_valid': True, 'name': image.filepath.name, 'url': image.filepath.url}
                     else:
                         data = {'is_valid': False}
                     return JsonResponse(data)
+
+            if request.is_ajax():
+                print('## Ajax call')
+                print('## Celery Worker Status: ')
+                print(get_celery_worker_status())
+                result = '', ''
+                print('## snapshot files : ', snapshot_files)
+                for snapshot in snapshot_files:
+                    resultemp = styler_function(snapshot, styler_option)
+                    result[0] += resultemp[0]
+                    result[1] += resultemp[1]
+                    print('## Styler is Done')
+                return HttpResponse(json.dumps({
+                    'consoles': result[0],
+                    'plots': result[1]
+                }))
+
 
         elif datafile_form.is_valid(): # TODO: adding validation on ajax request is not implemented
             print('## datafile form is valid')
